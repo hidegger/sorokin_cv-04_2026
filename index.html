@@ -268,6 +268,14 @@
             grid-template-columns: 1fr 1fr 1fr;
         }
 
+        .gallery--print {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .gallery--print .media--full {
+            grid-column: 1 / -1;
+        }
+
         .gallery--9 {
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -705,12 +713,12 @@
             </div>
 
             <!-- Assets/06 -->
-            <div class="gallery gallery--5 fade-in">
+            <div class="gallery gallery--print fade-in">
                 <div class="media"><img src="Assets/06/06_01.jpg" alt="Печатная продукция — sensiDO"></div>
                 <div class="media"><img src="Assets/06/06_02.jpg" alt="Печатная продукция — Fiber Complex"></div>
-                <div class="media"><img src="Assets/06/06_03.jpg" alt="Печатная продукция — QOD"></div>
-                <div class="media"><img src="Assets/06/06_04.jpg" alt="Печатная продукция — техкарта"></div>
-                <div class="media"><img src="Assets/06/06_05.jpg" alt="Печатная продукция — System 4"></div>
+                <div class="media media--full"><img src="Assets/06/06_03.jpg" alt="Печатная продукция — QOD"></div>
+                <div class="media media--full"><img src="Assets/06/06_04.jpg" alt="Печатная продукция — техкарта"></div>
+                <div class="media media--full"><img src="Assets/06/06_05.jpg" alt="Печатная продукция — System 4"></div>
             </div>
         </div>
     </section>
