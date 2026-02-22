@@ -6,3 +6,8 @@
 
 [context."feat/dark-theme"]
   command = "cp index-v2.html index.html"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
