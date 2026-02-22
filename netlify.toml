@@ -1,0 +1,27 @@
+[build]
+  # Указываем корень в качестве публикуемой директории
+  publish = "."
+  # Базовая команда (для локальной разработки и остальных веток)
+  command = "echo 'Static site, nothing to build'"
+
+# Контекст для production (основная ветка master)
+[context.production]
+  command = "echo 'Deploying master branch (Light Theme by default)'"
+
+# Контекст для ветви тёмной темы (feat/dark-theme)
+[context."feat/dark-theme"]
+  # При деплое этой ветки подменяем index.html на тёмную версию,
+  # чтобы превью-ссылка Netlify открывалась сразу с тёмной темы.
+  command = "cp index-v2.html index.html"
+
+# Настройки кэширования для ассетов
+[[headers]]
+  for = "/Assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
