@@ -453,6 +453,10 @@
                 padding: 60px 0;
             }
 
+            .hero {
+                padding: 100px 0 60px;
+            }
+
             .split,
             .split--text-media,
             .split--media-text {
@@ -461,6 +465,10 @@
 
             .comparison {
                 grid-template-columns: 1fr;
+            }
+
+            .comparison__col {
+                padding: 28px;
             }
 
             .comparison__col:first-child {
@@ -483,16 +491,113 @@
                 display: none;
             }
 
+            .salary {
+                padding: 80px 0;
+            }
+
             .salary__numbers {
                 gap: 20px;
+            }
+
+            .total {
+                padding: 24px 28px;
+            }
+
+            .section-intro {
+                padding: 80px 0 40px;
             }
         }
 
         @media (max-width: 600px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .section {
+                padding: 48px 0;
+            }
+
+            .hero {
+                padding: 80px 0 48px;
+            }
+
+            .t-sub {
+                margin-bottom: 32px;
+            }
 
             .gallery--2,
-            .gallery--4 {
+            .gallery--3,
+            .gallery--4,
+            .gallery--5,
+            .gallery--print,
+            .gallery--9 {
                 grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                gap: 8px;
+                margin-top: 24px;
+            }
+
+            .comparison__col {
+                padding: 20px;
+            }
+
+            .comparison li {
+                font-size: 0.9rem;
+            }
+
+            .comparison p {
+                font-size: 0.9rem;
+            }
+
+            .comparison {
+                margin-bottom: 32px;
+            }
+
+            .table-row {
+                padding: 20px 0;
+            }
+
+            .total {
+                padding: 20px 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+                width: 100%;
+            }
+
+            .total__value {
+                font-size: 1.4rem;
+            }
+
+            .salary {
+                padding: 60px 0;
+            }
+
+            .salary__numbers {
+                gap: 12px;
+                margin-top: 32px;
+            }
+
+            .subsection-title {
+                margin-bottom: 8px;
+            }
+
+            .subsection-desc {
+                margin-bottom: 20px;
+            }
+
+            .section-intro {
+                padding: 60px 0 32px;
+            }
+
+            .t-body[style*="max-width"] {
+                max-width: 100% !important;
+            }
+
+            .t-sub[style*="max-width"] {
+                max-width: 100% !important;
             }
         }
     </style>
@@ -601,7 +706,8 @@
                         <li>Передовые модели и&nbsp;сервисы нейросетей в&nbsp;разы сократили сложность и&nbsp;ускорили
                             процесс создания
                             визуалов профессионального уровня</li>
-                        <li>Сокращение времени работы над&nbsp;созданием изображения <strong>в&nbsp;4 раза</strong></li>
+                        <li>Сокращение времени работы над&nbsp;созданием изображения <strong>в&nbsp;4&nbsp;раза</strong>
+                        </li>
                         <li><strong>В&nbsp;настоящее время провожу исследования в&nbsp;области возможностей создания
                                 видеоконтента
                                 профессионального конкурентного уровня</strong></li>
@@ -625,7 +731,7 @@
         <div class="container">
             <div class="fade-in">
                 <p class="t-label">Оптимизация работы отдела</p>
-                <h2 class="t-section">Структуризация работы с отделом продаж</h2>
+                <h2 class="t-section">Структуризация работы с&nbsp;отделом продаж</h2>
             </div>
 
             <div class="split split--text-media fade-in">
@@ -815,7 +921,7 @@
                 </div>
                 <div class="table-row">
                     <div class="table-row__label">Программное обеспечение</div>
-                    <div class="table-row__value">Стоимость пакета Adobe с необходимым ПО — 5 500 ₽/мес.</div>
+                    <div class="table-row__value">Стоимость пакета Adobe с&nbsp;необходимым ПО — 5 500 ₽/мес.</div>
                 </div>
                 <div class="table-row">
                     <div class="table-row__label">Подписки на сервисы</div>
