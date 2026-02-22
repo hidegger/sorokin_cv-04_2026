@@ -1,11 +1,6 @@
 [build]
-  command = "echo 'Default build command'"
-
-[context.production]
-  command = "echo 'Deploying master branch'"
-
-[context."feat/dark-theme"]
-  command = "cp index-v2.html index.html"
+  command = "echo 'Static site, nothing to build'"
+  publish = "."
 
 [[headers]]
   for = "/assets/*"
