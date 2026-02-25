@@ -340,6 +340,271 @@
         }
 
         /* ================================================
+           EFFICIENCY BREAKDOWN (Slide 11)
+           ================================================ */
+
+        /* --- Hero stat callout --- */
+        .eff-hero-stat {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            padding: 36px 44px;
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.04) 0%, rgba(17, 17, 17, 0.01) 100%);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            margin-bottom: 64px;
+        }
+
+        .eff-hero-stat__number {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            color: #111;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .eff-hero-stat__text {
+            font-size: 1.1rem;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.65;
+        }
+
+        .eff-hero-stat__text strong {
+            color: #111;
+            font-weight: 600;
+        }
+
+        /* --- Block header --- */
+        .eff-block {
+            padding: 56px 0 48px;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .eff-block:last-child {
+            padding-bottom: 0;
+        }
+
+        .eff-block__header {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .eff-block__number {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, #222 0%, #444 100%);
+            color: #fff;
+            font-size: 0.85rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            letter-spacing: 0.02em;
+        }
+
+        .eff-block__title {
+            font-size: clamp(1.4rem, 2.5vw, 1.85rem);
+            font-weight: 700;
+            color: #111;
+            letter-spacing: -0.015em;
+            line-height: 1.25;
+            padding-top: 6px;
+        }
+
+        .eff-block__desc {
+            font-size: 1.05rem;
+            color: rgba(0, 0, 0, 0.6);
+            line-height: 1.7;
+            max-width: 900px;
+            margin-bottom: 32px;
+        }
+
+        /* --- Card grid for blocks 1 & 3 --- */
+        .eff-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .eff-cards li {
+            padding: 28px 32px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            font-size: 0.95rem;
+            color: rgba(0, 0, 0, 0.65);
+            line-height: 1.7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .eff-cards li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .eff-cards li strong {
+            display: block;
+            color: #111;
+            font-weight: 600;
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+
+        /* --- Metric row layout for block 2 --- */
+        .eff-metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .eff-metrics li {
+            padding: 28px 32px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 16px;
+            font-size: 0.95rem;
+            color: rgba(0, 0, 0, 0.65);
+            line-height: 1.7;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+
+        .eff-metrics li:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .eff-metrics li strong {
+            display: block;
+            color: #111;
+            font-weight: 600;
+            font-size: 1.0rem;
+            margin-bottom: 6px;
+        }
+
+        .eff-metric {
+            display: inline-block;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: #111;
+            letter-spacing: -0.02em;
+            margin-top: 12px;
+            padding: 6px 16px;
+            background: linear-gradient(135deg, rgba(40, 160, 70, 0.1) 0%, rgba(40, 160, 70, 0.04) 100%);
+            border-radius: 10px;
+            line-height: 1.3;
+        }
+
+        /* --- Result highlights for block 3 --- */
+        .eff-results {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            list-style: none;
+            padding: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .eff-results li {
+            padding: 24px 32px;
+            background: rgba(255, 255, 255, 0.5);
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.65);
+            line-height: 1.7;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: background 0.3s ease;
+        }
+
+        .eff-results li:last-child {
+            border-bottom: none;
+        }
+
+        .eff-results li:hover {
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .eff-results li::before {
+            content: '→';
+            flex-shrink: 0;
+            font-size: 1.1rem;
+            color: rgba(40, 160, 70, 0.6);
+            font-weight: 600;
+            padding-top: 1px;
+        }
+
+        .eff-results li strong {
+            color: #111;
+            font-weight: 600;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 900px) {
+
+            .eff-cards,
+            .eff-metrics {
+                grid-template-columns: 1fr;
+            }
+
+            .eff-hero-stat {
+                flex-direction: column;
+                gap: 16px;
+                padding: 28px 28px;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .eff-block {
+                padding: 36px 0 32px;
+            }
+
+            .eff-cards li,
+            .eff-metrics li {
+                padding: 20px 24px;
+            }
+
+            .eff-results li {
+                padding: 20px 24px;
+            }
+
+            .eff-block__header {
+                gap: 14px;
+            }
+
+            .eff-block__number {
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+                font-size: 0.75rem;
+            }
+
+            .eff-metric {
+                font-size: 1.2rem;
+                padding: 4px 12px;
+            }
+
+            .eff-hero-stat {
+                padding: 24px 20px;
+                margin-bottom: 40px;
+            }
+        }
+
+        /* ================================================
            COSTS TABLE (Slide 11)
            ================================================ */
         .table {
@@ -954,6 +1219,108 @@
             <div class="media fade-in" style="margin-top: 48px;">
                 <img src="assets/10/10_01.png" alt="Эффективность — результаты оптимизации">
             </div>
+        </div>
+
+        <!-- Efficiency Breakdown -->
+        <div class="container" style="padding-top: 80px;">
+
+            <!-- Hero stat callout -->
+            <div class="eff-hero-stat fade-in">
+                <div class="eff-hero-stat__number">33%</div>
+                <p class="eff-hero-stat__text">Статистическое распределение задач в&nbsp;отделе на&nbsp;каждого
+                    специалиста <strong>не&nbsp;в&nbsp;полной мере отражает реальную нагрузку.</strong><br />Мой рабочий
+                    поток смещён в сторону технически ёмких проектов. Благодаря внедрённой автоматизации, трудозатратные
+                    задачи отдела (например, многостраничная вёрстка и печатная
+                    продукция) выполняются быстрее и эффективнее, сохраняя общую динамику производства.</p>
+            </div>
+
+            <!-- Block 1 — High-Complexity -->
+            <div class="eff-block fade-in">
+                <div class="eff-block__header">
+                    <div class="eff-block__number">01</div>
+                    <h4 class="eff-block__title">Специализация на&nbsp;сложных задачах</h4>
+                </div>
+                <p class="eff-block__desc">Направления с&nbsp;длинным циклом производства и&nbsp;высокой стоимостью
+                    ошибки:</p>
+                <ul class="eff-cards">
+                    <li>
+                        <strong>Многостраничная вёрстка презентаций (40+ полос)</strong>
+                        Работа с&nbsp;большими массивами данных, где важна архитектура макета и&nbsp;системная логика.
+                    </li>
+                    <li>
+                        <strong>Допечатная подготовка и&nbsp;печатная продукция</strong>
+                        Полный цикл подготовки макетов к&nbsp;производству, уменьшающий риск финансового брака
+                        при&nbsp;печати тиражей.
+                    </li>
+                    <li>
+                        <strong>Разработка системных решений</strong>
+                        Изучение и последующее создание инструментов и&nbsp;библиотек, которыми пользуется дизайн-отдел
+                        и&nbsp;смежные
+                        подразделения.
+                    </li>
+                    <li>
+                        <strong>Стратегический креатив и&nbsp;брендинг</strong>
+                        Активное участие в многоитерационных мозговых штурмах дизайн-команды. Разработка концептов и
+                        визуальных решений, формирующих основу брендинга и обеспечивающих единство стиля во всех каналах
+                        коммуникации компании.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Block 2 — Optimization -->
+            <div class="eff-block fade-in">
+                <div class="eff-block__header">
+                    <div class="eff-block__number">02</div>
+                    <h4 class="eff-block__title">Технологическая оптимизация и&nbsp;рост производительности</h4>
+                </div>
+                <p class="eff-block__desc">В результате перестройки процессов те&nbsp;же задачи теперь выполняются
+                    быстрее:</p>
+                <ul class="eff-metrics">
+                    <li>
+                        <strong>Системная вёрстка в&nbsp;Figma</strong>
+                        Внедрение мастер-компонентов и&nbsp;стилей позволило ускорить создание сложных презентаций
+                        <span class="eff-metric">×5–6</span>
+                    </li>
+                    <li>
+                        <strong>Интеграция AI-инструментов</strong>
+                        Использование нейросетей для генерации и&nbsp;ретуши графики ускорило производство контента
+                        <span class="eff-metric">×4</span>
+                    </li>
+                    <li>
+                        <strong>Оптимизация допечатной подготовки</strong>
+                        Автоматизация проверки и&nbsp;сборки макетов сократила время подготовки печатной продукции
+                        <span class="eff-metric">×1,5–2</span>
+                    </li>
+                    <li>
+                        <strong>Шаблоны анонсов и листовок</strong>
+                        Разработанная мной система шаблонов для&nbsp;отдела продаж позволила менеджерам вносить типовые
+                        правки самостоятельно,
+                        частично освободив ресурс дизайн-команды для других проектов.
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Block 3 — Business results -->
+            <div class="eff-block fade-in">
+                <div class="eff-block__header">
+                    <div class="eff-block__number">03</div>
+                    <h4 class="eff-block__title">Результат для&nbsp;бизнес-процессов</h4>
+                </div>
+                <p class="eff-block__desc">Сосредоточение сложных технических задач в&nbsp;рамках одного
+                    оптимизированного процесса позволяет:</p>
+                <ul class="eff-results">
+                    <li><span><strong>Поддерживать высокую пропускную способность</strong> в&nbsp;условиях растущего
+                            объёма
+                            дизайн-задач и&nbsp;ограниченных ресурсов отдела.</span></li>
+                    <li><span><strong>Соблюдать сроки</strong> и&nbsp;обеспечивать предсказуемый результат
+                            в&nbsp;многоэтапных
+                            проектах.</span></li>
+                    <li><span><strong>Экономить бюджет:</strong> снижать операционные расходы за&nbsp;счёт высокой
+                            скорости
+                            и&nbsp;минимизации брака.</span></li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
