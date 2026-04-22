@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Егор Сорокин — Дизайнер. Результаты 2024–2026</title>
+    <title>Егор Сорокин — Графический и веб-дизайнер с 2008 года</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -171,62 +171,6 @@
         }
 
         /* ================================================
-           COMPARISON CARDS (Slides 02-04)
-           ================================================ */
-        .comparison {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            background: rgba(0, 0, 0, 0.03);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 48px;
-        }
-
-        .comparison__col {
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.5);
-        }
-
-        .comparison__col:first-child {
-            border-right: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .comparison ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .comparison li {
-            padding: 8px 0 8px 20px;
-            position: relative;
-            color: rgba(0, 0, 0, 0.7);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .comparison li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 16px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .comparison__col:last-child li::before {
-            background: rgba(40, 160, 70, 0.7);
-        }
-
-        .comparison p {
-            color: rgba(0, 0, 0, 0.65);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* ================================================
            MEDIA CONTAINERS
            ================================================ */
         .media {
@@ -278,6 +222,33 @@
 
         .gallery--9 {
             grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* --- Graphic design gallery (mixed vertical + horizontal) --- */
+        .gallery--graph {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .gallery--graph .media--wide {
+            grid-column: 1 / -1;
+        }
+
+        .gallery--graph .media--wide-2 {
+            grid-column: span 2;
+        }
+
+        /* --- 3D gallery (wide top + 3 below) --- */
+        .gallery--3d {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .gallery--3d .media--wide {
+            grid-column: 1 / -1;
+        }
+
+        /* --- Web gallery (full-width verticals/horizontals) --- */
+        .gallery--web {
+            grid-template-columns: 1fr;
         }
 
         .gallery .media img {
@@ -337,6 +308,15 @@
             max-width: 700px;
             margin-bottom: 32px;
             line-height: 1.7;
+        }
+
+        .gallery-caption {
+            font-size: 0.95rem;
+            color: rgba(0, 0, 0, 0.5);
+            max-width: 900px;
+            margin-top: 20px;
+            line-height: 1.6;
+            font-style: italic;
         }
 
         /* ================================================
@@ -456,6 +436,58 @@
             font-weight: 600;
             font-size: 1.05rem;
             margin-bottom: 8px;
+        }
+
+        /* --- Plain list style (for Проф. качества) --- */
+        .eff-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .eff-list li {
+            padding: 22px 28px;
+            background: rgba(255, 255, 255, 0.55);
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.72);
+            line-height: 1.65;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            transition: background 0.3s ease;
+        }
+
+        .eff-list li:last-child {
+            border-bottom: none;
+        }
+
+        .eff-list li:hover {
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .eff-list__num {
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: rgba(0, 0, 0, 0.35);
+            min-width: 24px;
+            padding-top: 2px;
+            letter-spacing: 0.02em;
+        }
+
+        /* --- Subtitle inside eff-block --- */
+        .eff-block__subtitle {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: #111;
+            margin: 36px 0 16px;
+            letter-spacing: -0.01em;
         }
 
         /* --- Metric row layout for block 2 --- */
@@ -582,6 +614,11 @@
                 padding: 20px 24px;
             }
 
+            .eff-list li {
+                padding: 18px 20px;
+                gap: 12px;
+            }
+
             .eff-block__header {
                 gap: 14px;
             }
@@ -693,6 +730,83 @@
         }
 
         /* ================================================
+           CONTACTS
+           ================================================ */
+        .contacts {
+            margin-top: 48px;
+        }
+
+        .contacts__label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: rgba(0, 0, 0, 0.45);
+            margin-bottom: 20px;
+        }
+
+        .contacts__grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .contact-card {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            padding: 20px 24px;
+            background: rgba(255, 255, 255, 0.6);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 14px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 0, 0, 0.12);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-card__label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: rgba(0, 0, 0, 0.45);
+        }
+
+        .contact-card__value {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #111;
+            letter-spacing: -0.005em;
+            word-break: break-word;
+        }
+
+        .contacts--centered .contacts__label,
+        .contacts--centered .contacts__title {
+            text-align: center;
+        }
+
+        .contacts--centered .contacts__grid {
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contacts__title {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 600;
+            color: #111;
+            margin-bottom: 20px;
+        }
+
+        /* ================================================
            SCROLL ANIMATIONS
            ================================================ */
         .fade-in {
@@ -728,23 +842,16 @@
                 grid-template-columns: 1fr;
             }
 
-            .comparison {
-                grid-template-columns: 1fr;
-            }
-
-            .comparison__col {
-                padding: 28px;
-            }
-
-            .comparison__col:first-child {
-                border-right: none;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            }
-
             .gallery--3,
             .gallery--5,
-            .gallery--9 {
+            .gallery--9,
+            .gallery--graph,
+            .gallery--3d {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery--graph .media--wide-2 {
+                grid-column: span 2;
             }
 
             .table-row {
@@ -795,29 +902,24 @@
             .gallery--4,
             .gallery--5,
             .gallery--print,
-            .gallery--9 {
+            .gallery--9,
+            .gallery--graph,
+            .gallery--3d {
                 grid-template-columns: 1fr;
+            }
+
+            .gallery--graph .media--wide-2,
+            .gallery--graph .media--wide {
+                grid-column: 1;
+            }
+
+            .gallery--3d .media--wide {
+                grid-column: 1;
             }
 
             .gallery {
                 gap: 8px;
                 margin-top: 24px;
-            }
-
-            .comparison__col {
-                padding: 20px;
-            }
-
-            .comparison li {
-                font-size: 0.9rem;
-            }
-
-            .comparison p {
-                font-size: 0.9rem;
-            }
-
-            .comparison {
-                margin-bottom: 32px;
             }
 
             .table-row {
@@ -857,6 +959,10 @@
                 padding: 60px 0 32px;
             }
 
+            .contact-card {
+                padding: 16px 18px;
+            }
+
             .t-body[style*="max-width"] {
                 max-width: 100% !important;
             }
@@ -873,17 +979,18 @@
     <!-- Navigation Dots -->
     <nav class="nav-dots" aria-label="Навигация">
         <a href="#hero" title="Начало"></a>
-        <a href="#s02" title="Figma"></a>
-        <a href="#s03" title="Нейросети"></a>
-        <a href="#s04" title="Продажи"></a>
-        <a href="#s05" title="Знания"></a>
-        <a href="#s06" title="Печать"></a>
-        <a href="#s07" title="Пространство"></a>
-        <a href="#s08" title="SMM"></a>
-        <a href="#s09" title="Презентации"></a>
-        <a href="#s10" title="Оборудование"></a>
-        <a href="#s11" title="Эффективность"></a>
+        <a href="#s-graph" title="Графический дизайн"></a>
+        <a href="#s-brand" title="Брендинг"></a>
+        <a href="#s-pres" title="Презентации"></a>
+        <a href="#s-web" title="Веб-дизайн"></a>
+        <a href="#s-pack" title="Упаковка"></a>
+        <a href="#s-spatial" title="Оформление пространства"></a>
+        <a href="#s-3d" title="3D и моушн"></a>
+        <a href="#s05" title="Передача знаний"></a>
+        <a href="#s10" title="Инструменты"></a>
+        <a href="#s11" title="Основные навыки"></a>
         <a href="#s12" title="Зарплата"></a>
+        <a href="#s-contacts" title="Контакты"></a>
     </nav>
 
     <!-- =============================================
@@ -892,169 +999,41 @@
     <section id="hero" class="hero">
         <div class="container">
             <div class="hero__inner fade-in">
-                <h1 class="t-hero">Сорокин Егор</h1>
-                <p class="hero__subtitle">Дизайнер. Результаты и&nbsp;достижения 2024–2026</p>
+                <h1 class="t-hero">Сорокин&nbsp;Егор</h1>
+                <p class="hero__subtitle">Арт-директор, графический и&nbsp;веб-дизайнер с&nbsp;2008&nbsp;года</p>
                 <div class="hero__line"></div>
             </div>
-        </div>
-    </section>
 
-    <!-- =============================================
-         SLIDE 02 — Внедрение Figma
-         ============================================= -->
-    <section id="s02" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <p class="t-label">Оптимизация работы отдела</p>
-                <h2 class="t-section">Внедрение Figma</h2>
-                <p class="t-sub">Сервис командной работы над&nbsp;визуальными проектами</p>
-            </div>
-
-            <div class="comparison fade-in">
-                <div class="comparison__col">
-                    <p class="t-card-title">До</p>
-                    <ul>
-                        <li>Работа в&nbsp;медленном платном программном обеспечении, не&nbsp;позволявшем быстро
-                            проверять
-                            большое количество концепций и&nbsp;создавать версии под&nbsp;площадки SMM</li>
-                        <li>Значительное замедление процесса сборки макетов и&nbsp;тестирования концептов</li>
-                    </ul>
-                </div>
-                <div class="comparison__col">
-                    <p class="t-card-title">После</p>
-                    <ul>
-                        <li>Командная работа в&nbsp;облаке</li>
-                        <li>Быстрый доступ к&nbsp;макетам и&nbsp;организация проектов</li>
-                        <li>Интегрированный функционал ИИ, ускоряющий процесс работы <strong>в&nbsp;5–6 раз</strong>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- assets/02 -->
-            <div class="media fade-in">
-                <video src="assets/02/02_01.mp4" autoplay loop muted playsinline></video>
-            </div>
-        </div>
-    </section>
-
-    <!-- =============================================
-         SLIDE 03 — Внедрение нейросетей
-         ============================================= -->
-    <section id="s03" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <p class="t-label">Оптимизация работы отдела</p>
-                <h2 class="t-section">Внедрение нейросетей</h2>
-                <p class="t-sub">Тестирование, сравнение моделей и&nbsp;постоянная актуализация лучших решений
-                    под&nbsp;различные
-                    задачи</p>
-            </div>
-
-            <div class="comparison fade-in">
-                <div class="comparison__col">
-                    <p class="t-card-title">До</p>
-                    <ul>
-                        <li>Отсутствие качественных исходников от&nbsp;глобалов</li>
-                        <li>Редкие профессиональные фотосессии продуктов и&nbsp;мастеров</li>
-                        <li>Длительный период создания конкурентного изображения, коллажа или&nbsp;имиджевого рекламного
-                            визуала: 4–8 часов</li>
-                    </ul>
-                </div>
-                <div class="comparison__col">
-                    <p class="t-card-title">После</p>
-                    <ul>
-                        <li>Нет необходимости в&nbsp;организации ресурсозатратных и&nbsp;сложных фотосессий</li>
-                        <li>Стали неактутальны дорогостоящие подписки на фотостоки</li>
-                        <li>Передовые модели и&nbsp;сервисы нейросетей в&nbsp;разы сократили сложность и&nbsp;ускорили
-                            процесс создания
-                            визуалов профессионального уровня</li>
-                        <li>Сокращение времени работы над&nbsp;созданием изображения <strong>в&nbsp;4&nbsp;раза</strong>
-                        </li>
-                        <li><strong>В&nbsp;настоящее время провожу исследования в&nbsp;области возможностей создания
-                                видеоконтента
-                                профессионального конкурентного уровня</strong></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- assets/03 -->
-            <div class="gallery gallery--3 fade-in">
-                <div class="media"><img src="assets/03/03_01.png" alt="AI-генерация продуктового фото 1"></div>
-                <div class="media"><img src="assets/03/03_02.png" alt="AI-генерация продуктового фото 2"></div>
-                <div class="media"><img src="assets/03/03_03.png" alt="AI-генерация продуктового фото 3"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =============================================
-         SLIDE 04 — Структуризация работы с отделом продаж
-         ============================================= -->
-    <section id="s04" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <p class="t-label">Оптимизация работы отдела</p>
-                <h2 class="t-section">Структуризация работы с&nbsp;отделом продаж</h2>
-            </div>
-
-            <div class="split split--text-media fade-in">
-                <div>
-                    <div class="comparison" style="grid-template-columns: 1fr; gap: 0;">
-                        <div class="comparison__col"
-                            style="border-right: none; border-bottom: 1px solid rgba(0,0,0,0.08);">
-                            <p class="t-card-title">До</p>
-                            <ul>
-                                <li>Передача макетов торговым представителям в&nbsp;формате Powerpoint,
-                                    не&nbsp;предназначенном для создания качественного визуала</li>
-                                <li>Постепенно изначальный дизайн разрушался за&nbsp;счёт субъективных правок макетов
-                                    в&nbsp;регионах</li>
-                            </ul>
-                        </div>
-                        <div class="comparison__col">
-                            <p class="t-card-title">После</p>
-                            <ul>
-                                <li>Макеты менеджерам и&nbsp;торговым представителям передаются с&nbsp;помощью сервиса
-                                    Figma Buzz</li>
-                                <li>Исключается «любительское» вмешательство в&nbsp;дизайн. Изначальный дизайн остаётся
-                                    неизменным, на&nbsp;местах можно править только ограниченную информацию (даты,
-                                    адреса, имена спикеров).</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- assets/04 -->
-                <div class="media">
-                    <img src="assets/04/04_01.png" alt="Figma Buzz — шаблоны для отдела продаж">
+            <div class="contacts fade-in">
+                <p class="contacts__label">Контакты</p>
+                <div class="contacts__grid">
+                    <a class="contact-card" href="https://brandloga.ru" target="_blank" rel="noopener">
+                        <span class="contact-card__label">Сайт-портфолио</span>
+                        <span class="contact-card__value">brandloga.ru</span>
+                    </a>
+                    <a class="contact-card" href="https://www.behance.net/smilinglion" target="_blank" rel="noopener">
+                        <span class="contact-card__label">Behance</span>
+                        <span class="contact-card__value">behance.net/smilinglion</span>
+                    </a>
+                    <a class="contact-card" href="https://t.me/smiling_lion" target="_blank" rel="noopener">
+                        <span class="contact-card__label">Телеграм</span>
+                        <span class="contact-card__value">@smiling_lion</span>
+                    </a>
+                    <a class="contact-card" href="tel:+79198127255">
+                        <span class="contact-card__label">Телефон</span>
+                        <span class="contact-card__value">+7&nbsp;919&nbsp;812&nbsp;72&nbsp;55</span>
+                    </a>
+                    <a class="contact-card" href="mailto:sorokin_ea@inbox.ru">
+                        <span class="contact-card__label">Эл. почта</span>
+                        <span class="contact-card__value">sorokin_ea@inbox.ru</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- =============================================
-         SLIDE 05 — Передача знаний
-         ============================================= -->
-    <section id="s05" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <p class="t-label">Оптимизация работы отдела</p>
-                <h2 class="t-section">Передача знаний</h2>
-                <p class="t-body" style="font-size: 1.2rem; max-width: 900px; margin-bottom: 48px;">Личные изыскания
-                    и&nbsp;наработки регулярно переношу в&nbsp;отдел, проводя воркшопы и&nbsp;мастер-классы внутри
-                    отдела, консультирую менеджеров смежных отделов. Отдел дизайна и&nbsp;компания получают знания о
-                    передовых технологиях, внедряя их в работу.</p>
-            </div>
-
-            <!-- assets/05 -->
-            <div class="gallery gallery--2 fade-in">
-                <div class="media"><img src="assets/05/05_01.png" alt="Krea AI — генерация логотипов"></div>
-                <div class="media"><img src="assets/05/05_02.png" alt="Figma Buzz — передача шаблонов"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =============================================
-         MULTIDISCIPLINARITY INTRO (Slides 06–09)
+         SCREEN 02 — Мультидисциплинарность intro
          ============================================= -->
     <section class="section section-intro section--flush" style="border-top: 1px solid rgba(0,0,0,0.08);">
         <div class="container fade-in">
@@ -1062,180 +1041,210 @@
             <h2 class="t-section" style="font-size: clamp(2.5rem, 5vw, 4rem);">Мультидисциплинарность</h2>
             <p class="t-body" style="font-size: 1.15rem; max-width: 800px;">Опыт и&nbsp;насмотренность позволяет
                 подхватывать задачи любого уровня. В&nbsp;каждом из&nbsp;направлений, представленных ниже, провёл
-                улучшение процессов
-                для&nbsp;ускорения задач.</p>
+                улучшение процессов для&nbsp;ускорения задач.</p>
         </div>
     </section>
 
-    <!-- =============================================
-         SLIDE 06 — Печатная продукция
-         ============================================= -->
-    <section id="s06" class="section section--flush">
+    <!-- 1. Графический дизайн -->
+    <section id="s-graph" class="section section--flush">
         <div class="container">
             <div class="fade-in">
-                <h3 class="subsection-title">Сложная многостраничная печатная продукция</h3>
-                <p class="subsection-desc">Написание скриптов и&nbsp;плагинов, которые позволяют ускорить подготовку
-                    макетов.
-                    Работа над&nbsp;макетами после&nbsp;оптимизации ускорилась <strong>в&nbsp;1,5–2 раза</strong>.</p>
+                <h3 class="subsection-title">Графический дизайн</h3>
+                <p class="subsection-desc">Уверенно применяю принципы колористики, композиции и&nbsp;типографики.
+                    Владею техдизайном, мэтпейнтингом, фотобашингом и&nbsp;профессиональной ретушью. Рисую от&nbsp;руки
+                    для&nbsp;набросков концепций и&nbsp;внедряю нейросети для&nbsp;получения более интересных
+                    результатов в&nbsp;короткие сроки.</p>
             </div>
-
-            <!-- assets/06 -->
-            <div class="gallery gallery--print fade-in">
-                <div class="media"><img src="assets/06/06_01.jpg" alt="Печатная продукция — sensiDO"></div>
-                <div class="media"><img src="assets/06/06_02.jpg" alt="Печатная продукция — Fiber Complex"></div>
-                <div class="media media--full"><img src="assets/06/06_03.jpg" alt="Печатная продукция — QOD"></div>
-                <div class="media media--full"><img src="assets/06/06_04.jpg" alt="Печатная продукция — техкарта"></div>
-                <div class="media media--full"><img src="assets/06/06_05.jpg" alt="Печатная продукция — System 4"></div>
+            <div class="gallery gallery--graph fade-in">
+                <div class="media"><img src="assets/04/04_01.jpg" alt="Графический дизайн 1"></div>
+                <div class="media"><img src="assets/04/04_02.jpg" alt="Графический дизайн 2"></div>
+                <div class="media"><img src="assets/04/04_03.jpg" alt="Графический дизайн 3"></div>
+                <div class="media"><img src="assets/04/04_04.jpg" alt="Графический дизайн 4"></div>
+                <div class="media media--wide-2"><img src="assets/04/04_06.jpg" alt="Графический дизайн 6"></div>
+                <div class="media media--wide"><img src="assets/04/04_05.jpg" alt="Графический дизайн 5"></div>
             </div>
         </div>
     </section>
 
-    <!-- =============================================
-         SLIDE 07 — Оформление пространства
-         ============================================= -->
-    <section id="s07" class="section section--flush">
+    <!-- 2. Брендинг -->
+    <section id="s-brand" class="section section--flush">
         <div class="container">
             <div class="fade-in">
-                <h3 class="subsection-title">Оформление пространства</h3>
-                <p class="subsection-desc">Внедрение ИИ&nbsp;+ знание основ 3D&nbsp;визуализации позволило поднять
-                    качество
-                    концепций на&nbsp;этапе дизайна.</p>
+                <h3 class="subsection-title">Брендинг</h3>
+                <p class="subsection-desc">Люблю создавать интересную и&nbsp;насыщенную смыслом айдентику
+                    и&nbsp;бренд-системы. Масштабирую идею от&nbsp;логотипа до&nbsp;целостной системы: фирменный стиль,
+                    гайдлайны, брендбук.</p>
             </div>
-
-            <!-- assets/07 -->
-            <div class="gallery gallery--4 fade-in">
-                <div class="media"><img src="assets/07/07_01.jpg" alt="3D-концепт стенда DS"></div>
-                <div class="media"><img src="assets/07/07_02.jpg" alt="3D-концепт стенда FCKNG Barbers"></div>
-                <div class="media"><img src="assets/07/07_03.jpg" alt="3D-концепт стенда System 4"></div>
-                <div class="media"><img src="assets/07/07_04.jpg" alt="3D-концепт барбер-зоны"></div>
+            <div class="gallery gallery--2 fade-in">
+                <div class="media"><img src="assets/05/05_01.jpg" alt="Брендинг 1"></div>
+                <div class="media"><img src="assets/05/05_02.jpg" alt="Брендинг 2"></div>
+                <div class="media"><img src="assets/05/05_03.jpg" alt="Брендинг 3"></div>
+                <div class="media"><img src="assets/05/05_04.jpg" alt="Брендинг 4"></div>
             </div>
         </div>
     </section>
 
-    <!-- =============================================
-         SLIDE 08 — SMM
-         ============================================= -->
-    <section id="s08" class="section section--flush">
-        <div class="container">
-            <div class="fade-in">
-                <h3 class="subsection-title">SMM</h3>
-                <p class="subsection-desc">Перевод команды на&nbsp;Figma и&nbsp;внедрение ИИ вместе
-                    с&nbsp;SMM-дизайнером Алесей Любавской позволили ускорить работу
-                    над&nbsp;большим объёмом smm-визуалов.</p>
-            </div>
-
-            <!-- assets/08 -->
-            <div class="gallery gallery--4 fade-in">
-                <div class="media"><img src="assets/08/08_01.jpg" alt="SMM RedHare Market"></div>
-                <div class="media"><img src="assets/08/08_02.jpg" alt="SMM System 4"></div>
-                <div class="media"><img src="assets/08/08_03.jpg" alt="SMM sensiDO"></div>
-                <div class="media"><img src="assets/08/08_04.jpg" alt="SMM System 4 программа"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- =============================================
-         SLIDE 09 — Презентации
-         ============================================= -->
-    <section id="s09" class="section section--flush">
+    <!-- 3. Презентации -->
+    <section id="s-pres" class="section section--flush">
         <div class="container">
             <div class="fade-in">
                 <h3 class="subsection-title">Презентации 40+ страниц</h3>
-                <p class="subsection-desc">За&nbsp;счёт оптимизации инструментов, описанной ранее, скорость создания
-                    объёмных
-                    презентаций <strong>увеличилась в&nbsp;5 раз</strong>, что позволило повысить качество визуала,
-                    не&nbsp;отвлекаясь на&nbsp;ограничения программного обеспечения.</p>
+                <p class="subsection-desc">Основной инструмент&nbsp;— Figma, базовая и&nbsp;Figma Presentation. Активно
+                    изучаю возможности нейросетей для&nbsp;ускорения и&nbsp;оптимизации разработки слайдов.</p>
             </div>
-
-            <!-- assets/09 -->
-            <div class="gallery gallery--9 fade-in">
-                <div class="media"><img src="assets/09/09_01.jpg" alt="Презентация 1"></div>
-                <div class="media"><img src="assets/09/09_02.jpg" alt="Презентация 2"></div>
-                <div class="media"><img src="assets/09/09_03.jpg" alt="Презентация 3"></div>
-                <div class="media"><img src="assets/09/09_04.jpg" alt="Презентация 4"></div>
-                <div class="media"><img src="assets/09/09_05.jpg" alt="Презентация 5"></div>
-                <div class="media"><img src="assets/09/09_06.jpg" alt="Презентация 6"></div>
-                <div class="media"><img src="assets/09/09_07.jpg" alt="Презентация 7"></div>
-                <div class="media"><img src="assets/09/09_08.jpg" alt="Презентация 8"></div>
-                <div class="media"><img src="assets/09/09_09.jpg" alt="Презентация 9"></div>
+            <div class="gallery gallery--3 fade-in">
+                <div class="media"><img src="assets/03/03_01.jpg" alt="Презентация 1"></div>
+                <div class="media"><img src="assets/03/03_02.jpg" alt="Презентация 2"></div>
+                <div class="media"><img src="assets/03/03_03.jpg" alt="Презентация 3"></div>
+                <div class="media"><img src="assets/03/03_04.jpg" alt="Презентация 4"></div>
+                <div class="media"><img src="assets/03/03_05.jpg" alt="Презентация 5"></div>
+                <div class="media"><img src="assets/03/03_06.jpg" alt="Презентация 6"></div>
+                <div class="media"><img src="assets/03/03_07.jpg" alt="Презентация 7"></div>
+                <div class="media"><img src="assets/03/03_08.jpg" alt="Презентация 8"></div>
+                <div class="media"><img src="assets/03/03_09.jpg" alt="Презентация 9"></div>
             </div>
         </div>
     </section>
 
-    <!-- =============================================
-         SLIDE 10 — Оборудование и подписки
-         ============================================= -->
+    <!-- 4. Веб-дизайн -->
+    <section id="s-web" class="section section--flush">
+        <div class="container">
+            <div class="fade-in">
+                <h3 class="subsection-title">Веб-дизайн</h3>
+                <p class="subsection-desc">В&nbsp;портфолио более 50&nbsp;сайтов различной сложности. Понимаю принципы
+                    UX/UI, выстраиваю маршрут пользователя. Строю дизайн-системы, в&nbsp;прошлом собирал сайты
+                    «под&nbsp;ключ» (HTML/CSS/JS).</p>
+            </div>
+            <div class="gallery gallery--web fade-in">
+                <div class="media"><img src="assets/07/07_01.jpg" alt="Веб-дизайн 1"></div>
+                <div class="media"><img src="assets/07/07_02.png" alt="Веб-дизайн 2"></div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 5. Упаковка -->
+    <section id="s-pack" class="section section--flush">
+        <div class="container">
+            <div class="fade-in">
+                <h3 class="subsection-title">Упаковка</h3>
+                <p class="subsection-desc">Готовлю макеты под&nbsp;печать различной сложности: от&nbsp;буклетов
+                    до&nbsp;многостраничной продукции и&nbsp;упаковки. Разбираюсь в&nbsp;допечатной подготовке,
+                    разработал набор скриптов, которые позволяют ускорить подготовку макетов.</p>
+            </div>
+            <div class="gallery gallery--print fade-in">
+                <div class="media"><img src="assets/02a/02a_01.jpg" alt="Упаковка 1"></div>
+                <div class="media"><img src="assets/02a/02a_02.jpg" alt="Упаковка 2"></div>
+                <div class="media media--full"><img src="assets/02a/02a_03.jpg" alt="Упаковка 3"></div>
+                <div class="media"><img src="assets/02a/02a_04.jpg" alt="Упаковка 4"></div>
+                <div class="media"><img src="assets/02a/02a_05.jpg" alt="Упаковка 5"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Оформление пространства -->
+    <section id="s-spatial" class="section section--flush">
+        <div class="container">
+            <div class="fade-in">
+                <h3 class="subsection-title">Оформление пространства</h3>
+                <p class="subsection-desc">Внедрение ИИ&nbsp;+ знание основ 3D-визуализации позволило поднять качество
+                    концепций на&nbsp;этапе дизайна.</p>
+            </div>
+            <div class="gallery gallery--2 fade-in">
+                <div class="media"><img src="assets/02b/02b_01.jpg" alt="Оформление пространства 1"></div>
+                <div class="media"><img src="assets/02b/02b_02.jpg" alt="Оформление пространства 2"></div>
+                <div class="media"><img src="assets/02b/02b_03.jpg" alt="Оформление пространства 3"></div>
+                <div class="media"><img src="assets/02b/02b_04.jpg" alt="Оформление пространства 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. 3D и моушн-дизайн -->
+    <section id="s-3d" class="section section--flush">
+        <div class="container">
+            <div class="fade-in">
+                <h3 class="subsection-title">3D и&nbsp;моушн-дизайн</h3>
+                <p class="subsection-desc">Владею Cinema&nbsp;4D и&nbsp;Blender, где собираю, в&nbsp;основном, статичные
+                    сцены, а&nbsp;также After Effects для&nbsp;несложных моушн-роликов.</p>
+            </div>
+            <div class="gallery gallery--3d fade-in">
+                <div class="media media--wide"><img src="assets/06/06_01.jpg" alt="3D работа 1"></div>
+                <div class="media"><img src="assets/06/06_02.jpg" alt="3D работа 2"></div>
+                <div class="media"><img src="assets/06/06_03.jpg" alt="3D работа 3"></div>
+                <div class="media"><img src="assets/06/06_04.jpg" alt="3D работа 4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN — Передача знаний -->
+    <section id="s05" class="section">
+        <div class="container">
+            <div class="fade-in">
+                <p class="t-label">Оптимизация работы отдела</p>
+                <h2 class="t-section">Передача знаний</h2>
+                <p class="t-body" style="font-size: 1.2rem; max-width: 900px; margin-bottom: 48px;">Личные изыскания
+                    и&nbsp;наработки регулярно переношу в&nbsp;отдел, проводя воркшопы и&nbsp;мастер-классы внутри
+                    отдела, консультирую менеджеров смежных отделов. Отдел дизайна и&nbsp;компания получают знания
+                    о&nbsp;передовых технологиях, внедряя их&nbsp;в&nbsp;работу.</p>
+            </div>
+            <div class="gallery gallery--2 fade-in">
+                <div class="media"><img src="assets/09/09_01.jpg" alt="Передача знаний 1"></div>
+                <div class="media"><img src="assets/09/09_02.jpg" alt="Передача знаний 2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN — Используемые инструменты (с подразделом «Нейросети») -->
     <section id="s10" class="section">
         <div class="container">
             <div class="fade-in">
-                <h2 class="t-section">Оборудование и&nbsp;подписки</h2>
-                <p class="t-body" style="font-size: 1.2rem; max-width: 900px; margin-bottom: 48px;">Дизайн-задачи
-                    требуют постоянного обновления оборудования, программного обеспечения и&nbsp;подписок
-                    профессиональных сервисов.</p>
-            </div>
-
-            <div class="fade-in">
-                <div class="table-row">
-                    <div class="table-row__label">Рабочий компьютер</div>
-                    <div class="table-row__value">Ежемесячная амортизация оборудования — 4&nbsp;500&nbsp;₽/мес.</div>
-                </div>
-                <div class="table-row">
-                    <div class="table-row__label">Программное обеспечение</div>
-                    <div class="table-row__value">Стоимость пакета Adobe с&nbsp;необходимым ПО — 5&nbsp;500&nbsp;₽/мес.
-                    </div>
-                </div>
-                <div class="table-row">
-                    <div class="table-row__label">Подписки на сервисы</div>
-                    <div class="table-row__value">
-                        В&nbsp;данный момент SIMUSHKA предоставляет часть сервисов ИИ. Однако устаревание бывших лидеров
-                        и&nbsp;недостаточное количество лимитов генерации купленных подписок для&nbsp;полноценной работы
-                        дизайн-отдела требуют покупки дополнительной подписки.<br><br>
-                        На&nbsp;данный момент ежемесячные траты на&nbsp;ИИ-сервисы, которые ежедневно используются
-                        в&nbsp;работе для&nbsp;SIMUSHKA — 2&nbsp;000&nbsp;₽/мес.
-                    </div>
-                </div>
-
-                <div class="total">
-                    <span class="total__label">Итого личные затраты:</span>
-                    <span class="total__value">12&nbsp;000&nbsp;₽/мес</span>
+                <h2 class="t-section">Используемые инструменты</h2>
+                <div style="font-size: 1.15rem; max-width: 900px; margin-bottom: 48px;">
+                    <ol style="margin: 16px 0; padding-left: 24px; line-height: 1.8;">
+                        <li>Figma&nbsp;— работаю с&nbsp;первой версии, активно помогал в&nbsp;развитии сервиса, пишу
+                            скрипты.</li>
+                        <li>Пакет Adobe: Photoshop, Illustrator, InDesign, After&nbsp;Effects.</li>
+                        <li>3D-пакеты: Blender, Cinema&nbsp;4D (Octane, Arnold), базово&nbsp;— Unreal&nbsp;Engine.</li>
+                        <li>HTML/CSS/JS</li>
+                    </ol>
                 </div>
             </div>
+
+            <div class="fade-in" style="margin-top: 24px;">
+                <h3 class="subsection-title">Использование нейросетей</h3>
+                <p class="subsection-desc" style="max-width: 900px;">Активно применяю все сильные стороны ИИ
+                    для&nbsp;генерации визуалов (Midjourney, Nanobanana, Firefly, Kling), работы с&nbsp;материалом
+                    (ChatGPT, Gemini) и&nbsp;автоматизации (разработка ИИ-агентов и&nbsp;вайб-кодинг на&nbsp;Codex,
+                    Gemini и&nbsp;Claude).</p>
+            </div>
+
+            <div class="gallery gallery--3 fade-in" style="margin-top: 24px;">
+                <div class="media"><img src="assets/10/10_01.jpg" alt="AI-инструменты 1"></div>
+                <div class="media"><img src="assets/10/10_02.jpg" alt="AI-инструменты 2"></div>
+                <div class="media"><img src="assets/10/10_03.jpg" alt="AI-инструменты 3"></div>
+            </div>
+            <p class="gallery-caption fade-in">Примеры сборки сложных продуктовых коллажей на&nbsp;основе
+                ИИ-генераций и&nbsp;ручной доработки.</p>
         </div>
     </section>
 
-    <!-- =============================================
-         SLIDE 11 — Эффективность
-         ============================================= -->
+    <!-- SCREEN — Основные навыки -->
     <section id="s11" class="section">
         <div class="container fade-in">
             <p class="t-label">Итоги</p>
-            <h2 class="t-section">Эффективность</h2>
-            <p class="t-body" style="font-size: 1.2rem; max-width: 900px;">Вышеописанные мероприятия по&nbsp;оптимизации
-                личной работы, а&nbsp;также работы дизайн-отдела позволили мне выполнять с&nbsp;высокой эффективностью,
-                качеством и&nbsp;скоростью объёмные и&nbsp;сложные дизайн-задачи, требующие глубокого погружения.</p>
-
-            <!-- assets/10 -->
-            <div class="media fade-in" style="margin-top: 48px;">
-                <img src="assets/10/10_01.png" alt="Эффективность — результаты оптимизации">
-            </div>
+            <h2 class="t-section">Основные навыки</h2>
         </div>
-
-        <!-- Efficiency Breakdown -->
         <div class="container" style="padding-top: 80px;">
-
-
-            <!-- Block 1 — High-Complexity -->
+            <!-- Block 1 — Специализация -->
             <div class="eff-block fade-in">
                 <div class="eff-block__header">
                     <div class="eff-block__number">01</div>
                     <h4 class="eff-block__title">Специализация на&nbsp;сложных задачах</h4>
                 </div>
-                <p class="eff-block__desc">Направления с&nbsp;длинным циклом производства и&nbsp;высокой стоимостью
-                    ошибки:</p>
+                <p class="eff-block__desc">Направления с&nbsp;длинным циклом производства, требующих глубокого
+                    погружения в&nbsp;задачу.</p>
                 <ul class="eff-cards">
                     <li>
-                        <strong>Многостраничная вёрстка презентаций (40+ полос)</strong>
+                        <strong>Многостраничная вёрстка презентаций (40+&nbsp;полос)</strong>
                         Работа с&nbsp;большими массивами данных, где важна архитектура макета и&nbsp;системная логика.
                     </li>
                     <li>
@@ -1245,90 +1254,123 @@
                     </li>
                     <li>
                         <strong>Разработка системных решений</strong>
-                        Изучение и последующее создание инструментов и&nbsp;библиотек, которыми пользуется дизайн-отдел
-                        и&nbsp;смежные
-                        подразделения.
+                        Изучение и&nbsp;последующее создание инструментов и&nbsp;библиотек, которыми пользуется
+                        дизайн-отдел и&nbsp;смежные подразделения.
                     </li>
                     <li>
                         <strong>Стратегический креатив и&nbsp;брендинг</strong>
-                        Активное участие в многоитерационных мозговых штурмах дизайн-команды. Разработка концептов
-                        и&nbsp;визуальных решений, формирующих основу брендинга и обеспечивающих единство стиля
-                        во&nbsp;всех
-                        каналах
-                        коммуникации компании.
+                        Активное участие в&nbsp;многоитерационных мозговых штурмах дизайн-команды. Разработка концептов
+                        и&nbsp;визуальных решений, формирующих основу брендинга и&nbsp;обеспечивающих единство стиля
+                        во&nbsp;всех каналах коммуникации компании.
                     </li>
                 </ul>
             </div>
 
-            <!-- Block 2 — Optimization -->
+            <!-- Block 2 — Профессиональные качества -->
             <div class="eff-block fade-in">
                 <div class="eff-block__header">
                     <div class="eff-block__number">02</div>
-                    <h4 class="eff-block__title">Технологическая оптимизация и&nbsp;рост производительности</h4>
+                    <h4 class="eff-block__title">Профессиональные качества</h4>
                 </div>
-                <p class="eff-block__desc">В результате перестройки процессов те&nbsp;же задачи теперь выполняются
-                    быстрее:</p>
-                <ul class="eff-metrics">
+                <p class="eff-block__desc">Компетенции, помогающие выстраивать эффективную работу.</p>
+                <ol class="eff-list">
                     <li>
-                        <strong>Системная вёрстка в&nbsp;Figma</strong>
-                        Внедрение мастер-компонентов и&nbsp;стилей позволило ускорить создание сложных презентаций
-                        <span class="eff-metric">×5–6</span>
+                        <span class="eff-list__num">01</span>
+                        <span>Имею опыт управления командой до&nbsp;5&nbsp;человек в&nbsp;качестве арт-директора
+                            и&nbsp;координатора проектов, грамотно составляю ТЗ и&nbsp;контролирую работу
+                            команды.</span>
                     </li>
                     <li>
-                        <strong>Интеграция AI-инструментов</strong>
-                        Использование нейросетей для генерации и&nbsp;ретуши графики ускорило производство контента
-                        <span class="eff-metric">×4</span>
+                        <span class="eff-list__num">02</span>
+                        <span>Лично презентую проекты клиенту, демонстрирую и&nbsp;защищаю концепции.</span>
                     </li>
                     <li>
-                        <strong>Оптимизация допечатной подготовки</strong>
-                        Автоматизация проверки и&nbsp;сборки макетов сократила время подготовки печатной продукции
-                        <span class="eff-metric">×1,5–2</span>
+                        <span class="eff-list__num">03</span>
+                        <span>Системный, ответственно подхожу к&nbsp;работе. Самостоятельно планирую своё время
+                            и&nbsp;ресурсы, чётко оцениваю объём и&nbsp;сроки работ, заранее предупреждаю
+                            о&nbsp;возможных проблемах.</span>
                     </li>
                     <li>
-                        <strong>Шаблоны анонсов и листовок</strong>
-                        Разработанная мной система шаблонов для&nbsp;отдела продаж позволила менеджерам вносить типовые
-                        правки самостоятельно, частично освободив ресурс дизайн-команды для&nbsp;других проектов.
+                        <span class="eff-list__num">04</span>
+                        <span>Превосходно чувствую себя как в&nbsp;офисе, так и&nbsp;на&nbsp;полной удалёнке.
+                            Общителен, легко нахожу общий язык.</span>
                     </li>
-                </ul>
-            </div>
+                    <li>
+                        <span class="eff-list__num">05</span>
+                        <span>Активно веду профессиональный блог, создаю скрипты для&nbsp;программ, облегчающие
+                            и&nbsp;ускоряющие работу, делюсь знаниями с&nbsp;коллегами.</span>
+                    </li>
+                    <li>
+                        <span class="eff-list__num">06</span>
+                        <span>Слежу за&nbsp;тенденциями в&nbsp;мире дизайна, активно развиваюсь и&nbsp;пробую новые
+                            области, непрерывно вкладываюсь в&nbsp;своё обучение.</span>
+                    </li>
+                    <li>
+                        <span class="eff-list__num">07</span>
+                        <span>Владение языками: английский&nbsp;— B2, немецкий&nbsp;— А2.</span>
+                    </li>
+                </ol>
 
-            <!-- Block 3 — Business results -->
-            <div class="eff-block fade-in">
-                <div class="eff-block__header">
-                    <div class="eff-block__number">03</div>
-                    <h4 class="eff-block__title">Результат для&nbsp;бизнес-процессов</h4>
-                </div>
-                <p class="eff-block__desc">Сосредоточение сложных технических задач в&nbsp;рамках одного
-                    оптимизированного процесса позволяет:</p>
-                <ul class="eff-results">
-                    <li><span><strong>Поддерживать высокую пропускную способность</strong> в&nbsp;условиях растущего
-                            объёма
-                            дизайн-задач и&nbsp;ограниченных ресурсов отдела.</span></li>
-                    <li><span><strong>Соблюдать сроки</strong> и&nbsp;обеспечивать предсказуемый результат
-                            в&nbsp;многоэтапных
-                            проектах.</span></li>
-                    <li><span><strong>Экономить бюджет:</strong> снижать операционные расходы за&nbsp;счёт высокой
-                            скорости
-                            и&nbsp;минимизации брака.</span></li>
-                </ul>
+                <h5 class="eff-block__subtitle">Редактура</h5>
+                <ol class="eff-list" start="8">
+                    <li>
+                        <span class="eff-list__num">08</span>
+                        <span>Русский язык люблю, пишу грамотно.</span>
+                    </li>
+                    <li>
+                        <span class="eff-list__num">09</span>
+                        <span>Способен без&nbsp;копирайтера проанализировать и&nbsp;переработать контент от&nbsp;клиента,
+                            вычленить смысловые блоки, дать рекомендации и&nbsp;внедрить это в&nbsp;дизайн.</span>
+                    </li>
+                    <li>
+                        <span class="eff-list__num">10</span>
+                        <span>Прошёл обучение редактуры на&nbsp;курсе Максима Ильяхова «Пиши, сокращай».</span>
+                    </li>
+                </ol>
             </div>
-
         </div>
     </section>
 
-    <!-- =============================================
-         SLIDE 12 — Зарплатные ожидания
-         ============================================= -->
+    <!-- SCREEN — Зарплатные ожидания -->
     <section id="s12" class="section salary">
         <div class="container fade-in">
             <h2 class="t-section">Зарплатные ожидания</h2>
-            <p class="t-sub" style="margin: 16px auto 0; text-align: center;">Прошу пересмотреть и&nbsp;увеличить мою
-                заработную плату до:</p>
-
+            <p class="t-sub" style="margin: 16px auto 0; text-align: center;">Прошу рассмотреть мою кандидатуру
+                на&nbsp;зарплату в&nbsp;размере:</p>
             <div class="salary__numbers">
-                <span class="salary__old">120&nbsp;000&nbsp;₽</span>
-                <span class="salary__arrow">→</span>
                 <span class="salary__new">220&nbsp;000&nbsp;₽</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREEN — Контакты (финальный экран) -->
+    <section id="s-contacts" class="section">
+        <div class="container fade-in">
+            <div class="contacts contacts--centered" style="margin-top: 0;">
+                <p class="contacts__label" style="text-align: center;">Буду рад связи</p>
+                <h2 class="t-section" style="text-align: center; margin-bottom: 32px;">Контакты</h2>
+                <div class="contacts__grid">
+                    <a class="contact-card" href="https://brandloga.ru" target="_blank" rel="noopener">
+                        <span class="contact-card__label">Сайт-портфолио</span>
+                        <span class="contact-card__value">brandloga.ru</span>
+                    </a>
+                    <a class="contact-card" href="https://www.behance.net/smilinglion" target="_blank" rel="noopener">
+                        <span class="contact-card__label">Behance</span>
+                        <span class="contact-card__value">behance.net/smilinglion</span>
+                    </a>
+                    <a class="contact-card" href="https://t.me/smiling_lion" target="_blank" rel="noopener">
+                        <span class="contact-card__label">Телеграм</span>
+                        <span class="contact-card__value">@smiling_lion</span>
+                    </a>
+                    <a class="contact-card" href="tel:+79198127255">
+                        <span class="contact-card__label">Телефон</span>
+                        <span class="contact-card__value">+7&nbsp;919&nbsp;812&nbsp;72&nbsp;55</span>
+                    </a>
+                    <a class="contact-card" href="mailto:sorokin_ea@inbox.ru">
+                        <span class="contact-card__label">Эл. почта</span>
+                        <span class="contact-card__value">sorokin_ea@inbox.ru</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
