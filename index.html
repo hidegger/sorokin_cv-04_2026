@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -596,6 +596,11 @@
             border-top: 1px solid rgba(0, 0, 0, 0.12);
         }
 
+        .eff-block:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
         .eff-block:last-child {
             padding-bottom: 0;
         }
@@ -1001,14 +1006,6 @@
                 margin-top: 24px;
             }
 
-            .salary {
-                padding: 60px 0;
-            }
-
-            .salary__numbers {
-                gap: 12px;
-                margin-top: 32px;
-            }
 
             .subsection-title {
                 margin-bottom: 8px;
@@ -1043,7 +1040,6 @@
                 <a href="#s-graph">Портфолио</a>
                 <a href="#s-exp">Опыт</a>
                 <a href="#s11">Навыки</a>
-                <a href="#s12">Зарплата</a>
                 <a href="#s-contacts">Контакты</a>
             </nav>
         </div>
@@ -1061,7 +1057,6 @@
         <a href="#s-exp" data-label="Опыт работы"></a>
         <a href="#s10" data-label="Инструменты"></a>
         <a href="#s11" data-label="Основные навыки"></a>
-        <a href="#s12" data-label="Зарплата"></a>
         <a href="#s-contacts" data-label="Контакты"></a>
     </nav>
 
@@ -1406,7 +1401,7 @@
         <div class="container fade-in">
             <h2 class="t-section">Основные навыки</h2>
         </div>
-        <div class="container" style="padding-top: 80px;">
+        <div class="container" style="padding-top: 32px;">
             <!-- Block 1 — Специализация -->
             <div class="eff-block fade-in">
                 <div class="eff-block__header">
@@ -1530,18 +1525,6 @@
         </div>
     </section>
 
-    <!-- SCREEN — Зарплатные ожидания -->
-    <section id="s12" class="section salary">
-        <div class="container fade-in">
-            <h2 class="t-section">Зарплатные ожидания</h2>
-            <p class="t-sub" style="margin: 16px auto 0; text-align: center; color: rgba(0,0,0,0.75);">Прошу рассмотреть
-                мою кандидатуру на&nbsp;зарплату в&nbsp;размере:</p>
-            <div class="salary__numbers">
-                <span class="salary__new">220&nbsp;000&nbsp;₽</span>
-            </div>
-        </div>
-    </section>
-
     <!-- SCREEN — Контакты (финальный экран) -->
     <section id="s-contacts" class="section">
         <div class="container fade-in">
@@ -1603,7 +1586,6 @@
             if (topGroups.includes(id)) return '#s-graph';
             if (id === 's-exp') return '#s-exp';
             if (id === 's10' || id === 's11') return '#s11';
-            if (id === 's12') return '#s12';
             if (id === 's-contacts') return '#s-contacts';
             return null;
         }
