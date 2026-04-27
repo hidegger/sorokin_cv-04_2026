@@ -1,8 +1,0 @@
-[build]
-  command = "echo 'Static site, nothing to build'"
-  publish = "."
-
-[[headers]]
-  for = "/assets/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
