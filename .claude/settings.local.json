@@ -20,7 +20,9 @@
       "Bash(ls package.json *.json requirements.txt)",
       "Bash(ls .claude/)",
       "mcp__Claude_Preview__preview_start",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push *)"
     ]
   }
 }

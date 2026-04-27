@@ -144,13 +144,175 @@
             border-radius: 50%;
             background: rgba(0, 0, 0, 0.25);
             display: block;
+            position: relative;
             transition: background 0.3s, transform 0.3s;
         }
 
         .nav-dots a:hover,
         .nav-dots a.active {
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.85);
             transform: scale(1.4);
+        }
+
+        .nav-dots a::after {
+            content: attr(data-label);
+            position: absolute;
+            right: calc(100% + 16px);
+            top: 50%;
+            transform: translateY(-50%) translateX(6px);
+            background: rgba(20, 20, 20, 0.92);
+            color: #fff;
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            padding: 6px 11px;
+            border-radius: 6px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+
+        .nav-dots a:hover::after,
+        .nav-dots a.active::after {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* ================================================
+           STICKY TOP NAV
+           ================================================ */
+        .topnav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 90;
+            background: rgba(245, 244, 240, 0.82);
+            -webkit-backdrop-filter: saturate(160%) blur(14px);
+            backdrop-filter: saturate(160%) blur(14px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transform: translateY(-100%);
+            transition: transform 0.4s ease;
+        }
+
+        .topnav.visible {
+            transform: translateY(0);
+        }
+
+        .topnav__inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 14px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .topnav__brand {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: rgba(0, 0, 0, 0.88);
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        .topnav__links {
+            display: flex;
+            gap: 28px;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .topnav__links::-webkit-scrollbar {
+            display: none;
+        }
+
+        .topnav__links a {
+            font-size: 0.9rem;
+            color: rgba(0, 0, 0, 0.55);
+            white-space: nowrap;
+            padding: 4px 0;
+            border-bottom: 1px solid transparent;
+            transition: color 0.25s ease, border-color 0.25s ease;
+        }
+
+        .topnav__links a:hover {
+            color: rgba(0, 0, 0, 0.95);
+        }
+
+        .topnav__links a.active {
+            color: rgba(0, 0, 0, 0.95);
+            border-bottom-color: rgba(0, 0, 0, 0.85);
+        }
+
+        section[id] {
+            scroll-margin-top: 72px;
+        }
+
+        /* ================================================
+           LIGHTBOX
+           ================================================ */
+        .media:not(a) img {
+            cursor: zoom-in;
+        }
+
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.94);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .lightbox img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+            transform: scale(0.96);
+            transition: transform 0.35s ease;
+        }
+
+        .lightbox.open img {
+            transform: scale(1);
+        }
+
+        .lightbox__close {
+            position: absolute;
+            top: 22px;
+            right: 26px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            cursor: pointer;
+            font-size: 20px;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .lightbox__close:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: rotate(90deg);
         }
 
         /* ================================================
@@ -751,6 +913,39 @@
                 display: none;
             }
 
+            .topnav__inner {
+                padding: 11px 16px;
+                gap: 12px;
+            }
+
+            .topnav__brand {
+                display: none;
+            }
+
+            .topnav__links {
+                gap: 18px;
+                flex: 1;
+            }
+
+            .topnav__links a {
+                font-size: 0.85rem;
+            }
+
+            section[id] {
+                scroll-margin-top: 60px;
+            }
+
+            .lightbox {
+                padding: 16px;
+            }
+
+            .lightbox__close {
+                top: 12px;
+                right: 12px;
+                width: 40px;
+                height: 40px;
+            }
+
             .salary {
                 padding: 80px 0;
             }
@@ -840,21 +1035,39 @@
 <body>
 
     <!-- Navigation Dots -->
-    <nav class="nav-dots" aria-label="Навигация">
-        <a href="#hero" title="Начало"></a>
-        <a href="#s-graph" title="Графический дизайн"></a>
-        <a href="#s-brand" title="Брендинг"></a>
-        <a href="#s-pres" title="Презентации"></a>
-        <a href="#s-web" title="Веб-дизайн"></a>
-        <a href="#s-pack" title="Упаковка"></a>
-        <a href="#s-spatial" title="Оформление пространства"></a>
-        <a href="#s-3d" title="3D и моушн"></a>
-        <a href="#s-exp" title="Опыт работы"></a>
-        <a href="#s10" title="Инструменты"></a>
-        <a href="#s11" title="Основные навыки"></a>
-        <a href="#s12" title="Зарплата"></a>
-        <a href="#s-contacts" title="Контакты"></a>
+    <header class="topnav" id="topnav">
+        <div class="topnav__inner">
+            <div class="topnav__brand">Егор Сорокин</div>
+            <nav class="topnav__links" aria-label="Основная навигация">
+                <a href="#s-graph">Портфолио</a>
+                <a href="#s-exp">Опыт</a>
+                <a href="#s11">Навыки</a>
+                <a href="#s12">Зарплата</a>
+                <a href="#s-contacts">Контакты</a>
+            </nav>
+        </div>
+    </header>
+
+    <nav class="nav-dots" aria-label="Навигация по разделам">
+        <a href="#hero" data-label="Начало"></a>
+        <a href="#s-graph" data-label="Графический дизайн"></a>
+        <a href="#s-brand" data-label="Брендинг"></a>
+        <a href="#s-pres" data-label="Презентации"></a>
+        <a href="#s-web" data-label="Веб-дизайн"></a>
+        <a href="#s-pack" data-label="Упаковка"></a>
+        <a href="#s-spatial" data-label="Оформление пространства"></a>
+        <a href="#s-3d" data-label="3D и моушн"></a>
+        <a href="#s-exp" data-label="Опыт работы"></a>
+        <a href="#s10" data-label="Инструменты"></a>
+        <a href="#s11" data-label="Основные навыки"></a>
+        <a href="#s12" data-label="Зарплата"></a>
+        <a href="#s-contacts" data-label="Контакты"></a>
     </nav>
+
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
+        <button class="lightbox__close" type="button" aria-label="Закрыть">✕</button>
+        <img alt="" />
+    </div>
 
     <!-- =============================================
          SLIDE 01 — HERO
@@ -1378,9 +1591,21 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Active nav dot
+        // Active nav dot + topnav link
         const sections = document.querySelectorAll('section[id]');
         const dots = document.querySelectorAll('.nav-dots a');
+        const topLinks = document.querySelectorAll('.topnav__links a');
+
+        // Map each section to its parent topnav group
+        const topGroups = ['s-graph', 's-brand', 's-pres', 's-web', 's-pack', 's-spatial', 's-3d'];
+        function topAnchorFor(id) {
+            if (topGroups.includes(id)) return '#s-graph';
+            if (id === 's-exp') return '#s-exp';
+            if (id === 's10' || id === 's11') return '#s11';
+            if (id === 's12') return '#s12';
+            if (id === 's-contacts') return '#s-contacts';
+            return null;
+        }
 
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1388,11 +1613,59 @@
                     dots.forEach(d => d.classList.remove('active'));
                     const dot = document.querySelector(`.nav-dots a[href="#${entry.target.id}"]`);
                     if (dot) dot.classList.add('active');
+
+                    const topHref = topAnchorFor(entry.target.id);
+                    if (topHref) {
+                        topLinks.forEach(l => l.classList.remove('active'));
+                        const link = document.querySelector(`.topnav__links a[href="${topHref}"]`);
+                        if (link) link.classList.add('active');
+                    }
                 }
             });
         }, { threshold: 0.3 });
 
         sections.forEach(s => navObserver.observe(s));
+
+        // Show topnav after scrolling past hero
+        const topnav = document.getElementById('topnav');
+        const hero = document.getElementById('hero');
+        const heroObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                topnav.classList.toggle('visible', !entry.isIntersecting);
+            });
+        }, { threshold: 0.15 });
+        if (hero) heroObserver.observe(hero);
+
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = lightbox.querySelector('img');
+        const lightboxClose = lightbox.querySelector('.lightbox__close');
+
+        function openLightbox(src, alt) {
+            lightboxImg.src = src;
+            lightboxImg.alt = alt || '';
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+            setTimeout(() => { lightboxImg.src = ''; }, 300);
+        }
+
+        document.querySelectorAll('.media img').forEach(img => {
+            // Skip images wrapped in a link (Behance projects)
+            if (img.closest('a')) return;
+            img.addEventListener('click', () => openLightbox(img.currentSrc || img.src, img.alt));
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) closeLightbox();
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        });
     </script>
 
 </body>
