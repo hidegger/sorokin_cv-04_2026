@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(npx --version)",
+      "Bash(gh --version)",
+      "Bash(claude mcp *)",
+      "Bash(ls .vercel/)",
+      "Bash(cat .vercel/project.json)",
+      "Bash(vercel ls *)",
+      "Bash(gh repo *)",
+      "Bash(where gh *)",
+      "Bash(where git *)",
+      "PowerShell(gh repo rename sorokin_cv-04_2026 --repo hidegger/-----------_---------_---------02_2026 --yes)",
+      "PowerShell(winget install --id GitHub.cli --silent --accept-package-agreements --accept-source-agreements)",
+      "PowerShell($env:Path = [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"Machine\"\\) + \";\" + [System.Environment]::GetEnvironmentVariable\\(\"Path\",\"User\"\\); gh auth status)",
+      "Bash(git credential *)",
+      "WebFetch(domain:annapaliivets.ru)",
+      "Bash(ls package.json *.json requirements.txt)",
+      "Bash(ls .claude/)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(git add *)"
+    ]
+  }
+}

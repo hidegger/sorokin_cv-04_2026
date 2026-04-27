@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 
 <head>
@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Егор Сорокин — Графический и веб-дизайнер с 2008 года</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap"
         rel="stylesheet">
     <style>
         /* ================================================
@@ -26,9 +27,9 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Golos Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #f0f0f0;
-            color: #222;
+            color: #0d0d0d;
             line-height: 1.6;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
@@ -50,7 +51,7 @@
         }
 
         .section+.section {
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
         }
 
         .section--flush {
@@ -65,7 +66,7 @@
             font-weight: 800;
             letter-spacing: -0.03em;
             line-height: 1.0;
-            color: #111;
+            color: #0d0d0d;
         }
 
         .t-section {
@@ -73,45 +74,27 @@
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.15;
-            color: #111;
+            color: #0d0d0d;
             margin-bottom: 16px;
         }
 
         .t-sub {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             font-weight: 400;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(0, 0, 0, 0.75);
             margin-bottom: 48px;
             max-width: 700px;
         }
 
-        .t-card-title {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 12px;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
         .t-body {
             font-size: 1rem;
-            color: rgba(0, 0, 0, 0.7);
+            color: rgba(0, 0, 0, 0.82);
             line-height: 1.7;
         }
 
         .t-body strong {
-            color: #111;
+            color: #0d0d0d;
             font-weight: 600;
-        }
-
-        .t-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: rgba(0, 0, 0, 0.45);
-            margin-bottom: 20px;
         }
 
         /* ================================================
@@ -129,15 +112,15 @@
 
         .hero__subtitle {
             font-size: clamp(1rem, 2vw, 1.5rem);
-            font-weight: 300;
-            color: rgba(0, 0, 0, 0.5);
+            font-weight: 400;
+            color: rgba(0, 0, 0, 0.7);
             letter-spacing: 0.02em;
         }
 
         .hero__line {
             width: 60px;
             height: 2px;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.25);
             margin-top: 20px;
         }
 
@@ -159,14 +142,14 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background: rgba(0, 0, 0, 0.15);
+            background: rgba(0, 0, 0, 0.25);
             display: block;
             transition: background 0.3s, transform 0.3s;
         }
 
         .nav-dots a:hover,
         .nav-dots a.active {
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(0, 0, 0, 0.8);
             transform: scale(1.4);
         }
 
@@ -177,6 +160,9 @@
             border-radius: 12px;
             overflow: hidden;
             background: transparent;
+            display: block;
+            text-decoration: none;
+            color: inherit;
         }
 
         .media img,
@@ -184,6 +170,16 @@
             width: 100%;
             height: auto;
             display: block;
+            transition: transform 0.4s ease, opacity 0.3s ease;
+        }
+
+        a.media {
+            cursor: pointer;
+        }
+
+        a.media:hover img {
+            transform: scale(1.02);
+            opacity: 0.92;
         }
 
         /* ================================================
@@ -251,6 +247,15 @@
             grid-template-columns: 1fr;
         }
 
+        /* --- AI gallery (6 images, mixed) --- */
+        .gallery--ai {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        .gallery--ai .media--wide-2 {
+            grid-column: span 2;
+        }
+
         .gallery .media img {
             width: 100%;
             height: auto;
@@ -298,13 +303,13 @@
         .subsection-title {
             font-size: clamp(1.4rem, 2.5vw, 2rem);
             font-weight: 600;
-            color: #111;
+            color: #0d0d0d;
             margin-bottom: 12px;
         }
 
         .subsection-desc {
             font-size: 1rem;
-            color: rgba(0, 0, 0, 0.65);
+            color: rgba(0, 0, 0, 0.78);
             max-width: 700px;
             margin-bottom: 32px;
             line-height: 1.7;
@@ -312,7 +317,7 @@
 
         .gallery-caption {
             font-size: 0.95rem;
-            color: rgba(0, 0, 0, 0.5);
+            color: rgba(0, 0, 0, 0.65);
             max-width: 900px;
             margin-top: 20px;
             line-height: 1.6;
@@ -320,45 +325,112 @@
         }
 
         /* ================================================
-           EFFICIENCY BREAKDOWN (Slide 11)
+           EXPERIENCE SECTION
            ================================================ */
-
-        /* --- Hero stat callout --- */
-        .eff-hero-stat {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            padding: 36px 44px;
-            background: linear-gradient(135deg, rgba(17, 17, 17, 0.04) 0%, rgba(17, 17, 17, 0.01) 100%);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            border-radius: 20px;
-            margin-bottom: 64px;
+        .exp-list {
+            margin-top: 48px;
         }
 
-        .eff-hero-stat__number {
-            font-size: clamp(3rem, 6vw, 4.5rem);
-            font-weight: 800;
-            color: #111;
-            letter-spacing: -0.03em;
-            line-height: 1;
-            flex-shrink: 0;
+        .exp-entry {
+            display: grid;
+            grid-template-columns: 220px 1fr;
+            gap: 48px;
+            padding: 56px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.15);
         }
 
-        .eff-hero-stat__text {
+        .exp-entry:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .exp-entry:last-child {
+            padding-bottom: 0;
+        }
+
+        .exp-date {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: rgba(0, 0, 0, 0.65);
+            letter-spacing: 0.01em;
+            padding-top: 6px;
+        }
+
+        .exp-company {
+            font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+            font-weight: 700;
+            color: #0d0d0d;
+            letter-spacing: -0.015em;
+            margin-bottom: 6px;
+        }
+
+        .exp-meta {
+            font-size: 0.92rem;
+            color: rgba(0, 0, 0, 0.65);
+            margin-bottom: 24px;
+        }
+
+        .exp-meta a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+            transition: border-color 0.2s ease, color 0.2s ease;
+        }
+
+        .exp-meta a:hover {
+            color: #0d0d0d;
+            border-color: rgba(0, 0, 0, 0.6);
+        }
+
+        .exp-role {
             font-size: 1.1rem;
-            color: rgba(0, 0, 0, 0.6);
-            line-height: 1.65;
-        }
-
-        .eff-hero-stat__text strong {
-            color: #111;
             font-weight: 600;
+            color: #0d0d0d;
+            margin-bottom: 18px;
+            letter-spacing: -0.005em;
         }
 
-        /* --- Block header --- */
+        .exp-desc {
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.82);
+            line-height: 1.75;
+        }
+
+        .exp-desc p+p {
+            margin-top: 16px;
+        }
+
+        .exp-desc ol,
+        .exp-desc ul {
+            margin: 18px 0 0;
+            padding-left: 22px;
+        }
+
+        .exp-desc li {
+            margin-bottom: 10px;
+            line-height: 1.75;
+            padding-left: 4px;
+        }
+
+        .exp-desc li:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-desc em {
+            font-style: italic;
+        }
+
+        .exp-desc strong {
+            color: #0d0d0d;
+            font-weight: 700;
+        }
+
+        /* ================================================
+           MAIN SKILLS BLOCK
+           ================================================ */
         .eff-block {
             padding: 56px 0 48px;
-            border-top: 1px solid rgba(0, 0, 0, 0.08);
+            border-top: 1px solid rgba(0, 0, 0, 0.12);
         }
 
         .eff-block:last-child {
@@ -376,7 +448,7 @@
             width: 44px;
             height: 44px;
             border-radius: 12px;
-            background: linear-gradient(135deg, #222 0%, #444 100%);
+            background: linear-gradient(135deg, #1a1a1a 0%, #3a3a3a 100%);
             color: #fff;
             font-size: 0.85rem;
             font-weight: 700;
@@ -390,7 +462,7 @@
         .eff-block__title {
             font-size: clamp(1.4rem, 2.5vw, 1.85rem);
             font-weight: 700;
-            color: #111;
+            color: #0d0d0d;
             letter-spacing: -0.015em;
             line-height: 1.25;
             padding-top: 6px;
@@ -398,13 +470,13 @@
 
         .eff-block__desc {
             font-size: 1.05rem;
-            color: rgba(0, 0, 0, 0.6);
+            color: rgba(0, 0, 0, 0.78);
             line-height: 1.7;
             max-width: 900px;
             margin-bottom: 32px;
         }
 
-        /* --- Card grid for blocks 1 & 3 --- */
+        /* --- Card grid --- */
         .eff-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -415,30 +487,30 @@
 
         .eff-cards li {
             padding: 28px 32px;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.08);
             border-radius: 16px;
             font-size: 0.95rem;
-            color: rgba(0, 0, 0, 0.65);
+            color: rgba(0, 0, 0, 0.8);
             line-height: 1.7;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
 
         .eff-cards li:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-            border-color: rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.15);
         }
 
         .eff-cards li strong {
             display: block;
-            color: #111;
+            color: #0d0d0d;
             font-weight: 600;
             font-size: 1.05rem;
             margin-bottom: 8px;
         }
 
-        /* --- Plain list style (for Проф. качества) --- */
+        /* --- Plain list style for qualities --- */
         .eff-list {
             list-style: none;
             padding: 0;
@@ -447,19 +519,19 @@
             gap: 0;
             border-radius: 16px;
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.1);
         }
 
         .eff-list li {
             padding: 22px 28px;
-            background: rgba(255, 255, 255, 0.55);
+            background: rgba(255, 255, 255, 0.65);
             font-size: 1rem;
-            color: rgba(0, 0, 0, 0.72);
+            color: rgba(0, 0, 0, 0.82);
             line-height: 1.65;
             display: flex;
             align-items: flex-start;
             gap: 18px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
             transition: background 0.3s ease;
         }
 
@@ -468,135 +540,49 @@
         }
 
         .eff-list li:hover {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .eff-list__num {
             flex-shrink: 0;
             font-size: 0.85rem;
             font-weight: 600;
-            color: rgba(0, 0, 0, 0.35);
+            color: rgba(0, 0, 0, 0.5);
             min-width: 24px;
             padding-top: 2px;
             letter-spacing: 0.02em;
         }
 
-        /* --- Subtitle inside eff-block --- */
+        /* --- Category subtitle inside eff-block --- */
         .eff-block__subtitle {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #111;
-            margin: 36px 0 16px;
-            letter-spacing: -0.01em;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: rgba(0, 0, 0, 0.7);
+            margin: 40px 0 16px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
-        /* --- Metric row layout for block 2 --- */
-        .eff-metrics {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-            list-style: none;
-            padding: 0;
+        .eff-block__subtitle:first-of-type {
+            margin-top: 0;
         }
 
-        .eff-metrics li {
-            padding: 28px 32px;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            border-radius: 16px;
-            font-size: 0.95rem;
-            color: rgba(0, 0, 0, 0.65);
-            line-height: 1.7;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-        }
-
-        .eff-metrics li:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-            border-color: rgba(0, 0, 0, 0.1);
-        }
-
-        .eff-metrics li strong {
-            display: block;
-            color: #111;
-            font-weight: 600;
-            font-size: 1.0rem;
-            margin-bottom: 6px;
-        }
-
-        .eff-metric {
-            display: inline-block;
-            font-weight: 800;
-            font-size: 1.5rem;
-            color: #111;
-            letter-spacing: -0.02em;
-            margin-top: 12px;
-            padding: 6px 16px;
-            background: linear-gradient(135deg, rgba(40, 160, 70, 0.1) 0%, rgba(40, 160, 70, 0.04) 100%);
-            border-radius: 10px;
-            line-height: 1.3;
-        }
-
-        /* --- Result highlights for block 3 --- */
-        .eff-results {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-            list-style: none;
-            padding: 0;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .eff-results li {
-            padding: 24px 32px;
-            background: rgba(255, 255, 255, 0.5);
+        .eff-paragraph {
             font-size: 1rem;
-            color: rgba(0, 0, 0, 0.65);
-            line-height: 1.7;
-            display: flex;
-            align-items: flex-start;
-            gap: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-            transition: background 0.3s ease;
+            color: rgba(0, 0, 0, 0.82);
+            line-height: 1.75;
+            max-width: 900px;
+            margin-top: 16px;
         }
 
-        .eff-results li:last-child {
-            border-bottom: none;
-        }
-
-        .eff-results li:hover {
-            background: rgba(255, 255, 255, 0.8);
-        }
-
-        .eff-results li::before {
-            content: '→';
-            flex-shrink: 0;
-            font-size: 1.1rem;
-            color: rgba(40, 160, 70, 0.6);
-            font-weight: 600;
-            padding-top: 1px;
-        }
-
-        .eff-results li strong {
-            color: #111;
-            font-weight: 600;
+        .eff-paragraph+.eff-paragraph {
+            margin-top: 14px;
         }
 
         /* --- Responsive --- */
         @media (max-width: 900px) {
-
-            .eff-cards,
-            .eff-metrics {
+            .eff-cards {
                 grid-template-columns: 1fr;
-            }
-
-            .eff-hero-stat {
-                flex-direction: column;
-                gap: 16px;
-                padding: 28px 28px;
-                text-align: center;
             }
         }
 
@@ -605,12 +591,7 @@
                 padding: 36px 0 32px;
             }
 
-            .eff-cards li,
-            .eff-metrics li {
-                padding: 20px 24px;
-            }
-
-            .eff-results li {
+            .eff-cards li {
                 padding: 20px 24px;
             }
 
@@ -629,74 +610,10 @@
                 border-radius: 10px;
                 font-size: 0.75rem;
             }
-
-            .eff-metric {
-                font-size: 1.2rem;
-                padding: 4px 12px;
-            }
-
-            .eff-hero-stat {
-                padding: 24px 20px;
-                margin-bottom: 40px;
-            }
         }
 
         /* ================================================
-           COSTS TABLE (Slide 11)
-           ================================================ */
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table-row {
-            display: grid;
-            grid-template-columns: 240px 1fr;
-            gap: 40px;
-            padding: 32px 0;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-            align-items: start;
-        }
-
-        .table-row:last-child {
-            border-bottom: none;
-        }
-
-        .table-row__label {
-            font-weight: 600;
-            font-size: 1.05rem;
-            color: #111;
-        }
-
-        .table-row__value {
-            font-size: 0.95rem;
-            color: rgba(0, 0, 0, 0.65);
-            line-height: 1.7;
-        }
-
-        .total {
-            margin-top: 40px;
-            padding: 32px 40px;
-            background: rgba(0, 0, 0, 0.04);
-            border-radius: 12px;
-            display: inline-flex;
-            gap: 12px;
-            align-items: baseline;
-        }
-
-        .total__label {
-            font-size: 1rem;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
-        .total__value {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #111;
-        }
-
-        /* ================================================
-           SALARY (Slide 12)
+           SALARY
            ================================================ */
         .salary {
             text-align: center;
@@ -712,21 +629,11 @@
             flex-wrap: wrap;
         }
 
-        .salary__old {
-            font-size: clamp(2rem, 5vw, 4rem);
-            font-weight: 300;
-            color: rgba(0, 0, 0, 0.25);
-        }
-
-        .salary__arrow {
-            font-size: 2rem;
-            color: rgba(0, 0, 0, 0.15);
-        }
-
         .salary__new {
             font-size: clamp(2.5rem, 6vw, 5rem);
             font-weight: 800;
-            color: #111;
+            color: #0d0d0d;
+            letter-spacing: -0.03em;
         }
 
         /* ================================================
@@ -736,18 +643,9 @@
             margin-top: 48px;
         }
 
-        .contacts__label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: rgba(0, 0, 0, 0.45);
-            margin-bottom: 20px;
-        }
-
         .contacts__grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 12px;
             margin-top: 16px;
         }
@@ -757,8 +655,8 @@
             flex-direction: column;
             gap: 4px;
             padding: 20px 24px;
-            background: rgba(255, 255, 255, 0.6);
-            border: 1px solid rgba(0, 0, 0, 0.06);
+            background: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(0, 0, 0, 0.1);
             border-radius: 14px;
             text-decoration: none;
             color: inherit;
@@ -767,9 +665,9 @@
 
         .contact-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.06);
-            border-color: rgba(0, 0, 0, 0.12);
-            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.95);
         }
 
         .contact-card__label {
@@ -777,33 +675,21 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            color: rgba(0, 0, 0, 0.45);
+            color: rgba(0, 0, 0, 0.6);
         }
 
         .contact-card__value {
             font-size: 1.05rem;
             font-weight: 500;
-            color: #111;
+            color: #0d0d0d;
             letter-spacing: -0.005em;
             word-break: break-word;
         }
 
-        .contacts--centered .contacts__label,
-        .contacts--centered .contacts__title {
-            text-align: center;
-        }
-
         .contacts--centered .contacts__grid {
-            max-width: 900px;
+            max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-        }
-
-        .contacts__title {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
-            font-weight: 600;
-            color: #111;
-            margin-bottom: 20px;
         }
 
         /* ================================================
@@ -846,17 +732,19 @@
             .gallery--5,
             .gallery--9,
             .gallery--graph,
-            .gallery--3d {
+            .gallery--3d,
+            .gallery--ai {
                 grid-template-columns: 1fr 1fr;
             }
 
-            .gallery--graph .media--wide-2 {
-                grid-column: span 2;
+            .exp-entry {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 40px 0;
             }
 
-            .table-row {
-                grid-template-columns: 1fr;
-                gap: 8px;
+            .exp-date {
+                padding-top: 0;
             }
 
             .nav-dots {
@@ -869,10 +757,6 @@
 
             .salary__numbers {
                 gap: 20px;
-            }
-
-            .total {
-                padding: 24px 28px;
             }
 
             .section-intro {
@@ -904,38 +788,21 @@
             .gallery--print,
             .gallery--9,
             .gallery--graph,
-            .gallery--3d {
+            .gallery--3d,
+            .gallery--ai {
                 grid-template-columns: 1fr;
             }
 
             .gallery--graph .media--wide-2,
-            .gallery--graph .media--wide {
-                grid-column: 1;
-            }
-
-            .gallery--3d .media--wide {
+            .gallery--graph .media--wide,
+            .gallery--3d .media--wide,
+            .gallery--ai .media--wide-2 {
                 grid-column: 1;
             }
 
             .gallery {
                 gap: 8px;
                 margin-top: 24px;
-            }
-
-            .table-row {
-                padding: 20px 0;
-            }
-
-            .total {
-                padding: 20px 20px;
-                display: flex;
-                flex-direction: column;
-                gap: 4px;
-                width: 100%;
-            }
-
-            .total__value {
-                font-size: 1.4rem;
             }
 
             .salary {
@@ -963,12 +830,8 @@
                 padding: 16px 18px;
             }
 
-            .t-body[style*="max-width"] {
-                max-width: 100% !important;
-            }
-
-            .t-sub[style*="max-width"] {
-                max-width: 100% !important;
+            .exp-company {
+                font-size: 1.4rem;
             }
         }
     </style>
@@ -986,7 +849,7 @@
         <a href="#s-pack" title="Упаковка"></a>
         <a href="#s-spatial" title="Оформление пространства"></a>
         <a href="#s-3d" title="3D и моушн"></a>
-        <a href="#s05" title="Передача знаний"></a>
+        <a href="#s-exp" title="Опыт работы"></a>
         <a href="#s10" title="Инструменты"></a>
         <a href="#s11" title="Основные навыки"></a>
         <a href="#s12" title="Зарплата"></a>
@@ -1005,7 +868,6 @@
             </div>
 
             <div class="contacts fade-in">
-                <p class="contacts__label">Контакты</p>
                 <div class="contacts__grid">
                     <a class="contact-card" href="https://brandloga.ru" target="_blank" rel="noopener">
                         <span class="contact-card__label">Сайт-портфолио</span>
@@ -1014,6 +876,11 @@
                     <a class="contact-card" href="https://www.behance.net/smilinglion" target="_blank" rel="noopener">
                         <span class="contact-card__label">Behance</span>
                         <span class="contact-card__value">behance.net/smilinglion</span>
+                    </a>
+                    <a class="contact-card" href="https://www.linkedin.com/in/brandloga/" target="_blank"
+                        rel="noopener">
+                        <span class="contact-card__label">LinkedIn</span>
+                        <span class="contact-card__value">linkedin.com/in/brandloga</span>
                     </a>
                     <a class="contact-card" href="https://t.me/smiling_lion" target="_blank" rel="noopener">
                         <span class="contact-card__label">Телеграм</span>
@@ -1035,9 +902,8 @@
     <!-- =============================================
          SCREEN 02 — Мультидисциплинарность intro
          ============================================= -->
-    <section class="section section-intro section--flush" style="border-top: 1px solid rgba(0,0,0,0.08);">
+    <section class="section section-intro section--flush" style="border-top: 1px solid rgba(0,0,0,0.12);">
         <div class="container fade-in">
-            <p class="t-label">Направления работы</p>
             <h2 class="t-section" style="font-size: clamp(2.5rem, 5vw, 4rem);">Мультидисциплинарность</h2>
             <p class="t-body" style="font-size: 1.15rem; max-width: 800px;">Опыт и&nbsp;насмотренность позволяет
                 подхватывать задачи любого уровня. В&nbsp;каждом из&nbsp;направлений, представленных ниже, провёл
@@ -1076,10 +942,22 @@
                     гайдлайны, брендбук.</p>
             </div>
             <div class="gallery gallery--2 fade-in">
-                <div class="media"><img src="assets/05/05_01.jpg" alt="Брендинг 1"></div>
-                <div class="media"><img src="assets/05/05_02.jpg" alt="Брендинг 2"></div>
-                <div class="media"><img src="assets/05/05_03.jpg" alt="Брендинг 3"></div>
-                <div class="media"><img src="assets/05/05_04.jpg" alt="Брендинг 4"></div>
+                <a class="media" href="https://www.behance.net/gallery/224434865/A-logo-for-sauna-tents-manufacturer"
+                    target="_blank" rel="noopener">
+                    <img src="assets/05/05_01.jpg" alt="Logo for sauna tents manufacturer">
+                </a>
+                <a class="media" href="https://www.behance.net/gallery/114406839/The-logo-for-the-barbershop"
+                    target="_blank" rel="noopener">
+                    <img src="assets/05/05_02.jpg" alt="Logo for the barbershop">
+                </a>
+                <a class="media" href="https://www.behance.net/gallery/247688735/Branding-for-Interior-Designers-CRM"
+                    target="_blank" rel="noopener">
+                    <img src="assets/05/05_03.jpg" alt="Branding for Interior Designers CRM">
+                </a>
+                <a class="media" href="https://www.behance.net/gallery/247591895/Brand-identity-for-a-wooden-toys-store"
+                    target="_blank" rel="noopener">
+                    <img src="assets/05/05_04.jpg" alt="Brand identity for a wooden toys store">
+                </a>
             </div>
         </div>
     </section>
@@ -1111,13 +989,25 @@
         <div class="container">
             <div class="fade-in">
                 <h3 class="subsection-title">Веб-дизайн</h3>
-                <p class="subsection-desc">В&nbsp;портфолио более 50&nbsp;сайтов различной сложности. Понимаю принципы
-                    UX/UI, выстраиваю маршрут пользователя. Строю дизайн-системы, в&nbsp;прошлом собирал сайты
+                <p class="subsection-desc">Понимаю принципы UX/UI, выстраиваю маршрут пользователя. Строю
+                    дизайн-системы, в&nbsp;прошлом собирал сайты
                     «под&nbsp;ключ» (HTML/CSS/JS).</p>
             </div>
             <div class="gallery gallery--web fade-in">
-                <div class="media"><img src="assets/07/07_01.jpg" alt="Веб-дизайн 1"></div>
-                <div class="media"><img src="assets/07/07_02.png" alt="Веб-дизайн 2"></div>
+                <a class="media"
+                    href="https://www.behance.net/gallery/209323207/sajt-proizvoditelja-otdelochnyh-materialov-ortograf"
+                    target="_blank" rel="noopener">
+                    <img src="assets/07/07_01.jpg" alt="Сайт производителя отделочных материалов «Ортограф»">
+                </a>
+                <a class="media"
+                    href="https://www.behance.net/gallery/129480857/Website-for-the-psychologist-educational-center"
+                    target="_blank" rel="noopener">
+                    <img src="assets/07/07_02.jpg" alt="Website for the psychologist educational center">
+                </a>
+                <a class="media" href="https://www.behance.net/gallery/83594697/Website-for-tyre-online-shop"
+                    target="_blank" rel="noopener">
+                    <img src="assets/07/07_03.jpg" alt="Website for tyre online shop">
+                </a>
             </div>
         </div>
     </section>
@@ -1175,21 +1065,88 @@
         </div>
     </section>
 
-    <!-- SCREEN — Передача знаний -->
-    <section id="s05" class="section">
-        <div class="container">
-            <div class="fade-in">
-                <p class="t-label">Оптимизация работы отдела</p>
-                <h2 class="t-section">Передача знаний</h2>
-                <p class="t-body" style="font-size: 1.2rem; max-width: 900px; margin-bottom: 48px;">Личные изыскания
-                    и&nbsp;наработки регулярно переношу в&nbsp;отдел, проводя воркшопы и&nbsp;мастер-классы внутри
-                    отдела, консультирую менеджеров смежных отделов. Отдел дизайна и&nbsp;компания получают знания
-                    о&nbsp;передовых технологиях, внедряя их&nbsp;в&nbsp;работу.</p>
-            </div>
-            <div class="gallery gallery--2 fade-in">
-                <div class="media"><img src="assets/09/09_01.jpg" alt="Передача знаний 1"></div>
-                <div class="media"><img src="assets/09/09_02.jpg" alt="Передача знаний 2"></div>
-            </div>
+    <!-- SCREEN — Опыт работы -->
+    <section id="s-exp" class="section">
+        <div class="container fade-in">
+            <h2 class="t-section">Опыт работы</h2>
+            <p class="t-body" style="font-size: 1.15rem; max-width: 800px;">Ключевые проекты
+                за&nbsp;последние 10&nbsp;лет.</p>
+        </div>
+        <div class="container exp-list">
+            <article class="exp-entry fade-in">
+                <div class="exp-date">Август 2024&nbsp;— Апрель 2026</div>
+                <div class="exp-body">
+                    <h3 class="exp-company">Simushka</h3>
+                    <p class="exp-meta">Россия&nbsp;· <a href="https://simushka.ru" target="_blank"
+                            rel="noopener">simushka.ru</a></p>
+                    <p class="exp-role">Старший дизайнер</p>
+                    <div class="exp-desc">
+                        <p>В&nbsp;составе команды бренд-дизайна занимался разработкой графических материалов: баннеров,
+                            презентаций, промо-материалов для&nbsp;мероприятий и&nbsp;рекламных кампаний. В&nbsp;рамках
+                            работы создавал дизайн упаковки, буклетов и&nbsp;раздаточного материала.</p>
+                        <ol>
+                            <li>Перевёл разработку большей части материалов в&nbsp;Figma, организовал систему рабочих
+                                проектов и&nbsp;исходников.</li>
+                            <li>Внедрил активное использование нейросетей для&nbsp;создания продуктовых визуалов
+                                профессионального качества, убрав необходимость в&nbsp;организации ресурсозатратных
+                                и&nbsp;сложных фотосессий.</li>
+                            <li>Настроил процесс разработки презентаций в&nbsp;Figma. Скорость создания объёмных
+                                презентаций <strong>увеличилась в&nbsp;5&nbsp;раз</strong>, что позволило повысить
+                                качество визуала, не&nbsp;отвлекаясь на&nbsp;ограничения программного обеспечения.</li>
+                            <li>Настроил шаблонизацию макетов анонсов мероприятий для&nbsp;передачи торговым
+                                представителям и&nbsp;менеджерам. Исключается «любительское» вмешательство
+                                в&nbsp;дизайн. Изначальный дизайн остаётся неизменным, на&nbsp;местах можно править
+                                только ограниченную информацию (даты, адреса, имена спикеров).</li>
+                        </ol>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exp-entry fade-in">
+                <div class="exp-date">Март 2018&nbsp;— Июнь 2024</div>
+                <div class="exp-body">
+                    <h3 class="exp-company">Acronis</h3>
+                    <p class="exp-meta">Швейцария&nbsp;· <a href="https://acronis.com" target="_blank"
+                            rel="noopener">acronis.com</a></p>
+                    <p class="exp-role">Старший дизайнер</p>
+                    <div class="exp-desc">
+                        <p>В&nbsp;составе команды веб-дизайна занимался разработкой графических материалов: баннеров,
+                            постеров, презентаций, промоматериалов для&nbsp;мероприятий и&nbsp;рекламных кампаний,
+                            а&nbsp;также принимал участие в&nbsp;проектировании и&nbsp;дизайне веб-сайта компании.</p>
+                        <p>Участвовал в&nbsp;создании концепций и&nbsp;key&nbsp;visual для&nbsp;продуктов компании.
+                            Активно внедрял применение нейросетей и&nbsp;трёхмерной графики для&nbsp;ускорения
+                            разработки иллюстраций.</p>
+                        <p>Оптимизировал процесс подготовки ассетов, создал и&nbsp;внедрил скрипты для&nbsp;Figma
+                            и&nbsp;Photoshop, что автоматизировало рутинные действия и&nbsp;повысило эффективность
+                            работы. Разработал систему компонентов для&nbsp;масштабирования сетов баннеров, обеспечив
+                            их&nbsp;гибкость и&nbsp;адаптивность.</p>
+                        <p>Организовал эффективную систему постановки задач для&nbsp;дизайнеров в&nbsp;Jira, обучил
+                            менеджеров, что привело к&nbsp;улучшению взаимодействия команд и&nbsp;уменьшению хаоса.
+                            Курировал работу миддл-дизайнеров, ревизировал и&nbsp;улучшал их&nbsp;макеты.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exp-entry fade-in">
+                <div class="exp-date">Май 2016&nbsp;— Август 2023</div>
+                <div class="exp-body">
+                    <h3 class="exp-company">Plusmedia (Лидер поиска)</h3>
+                    <p class="exp-meta">Самара&nbsp;· <a href="https://plusmedia.ru" target="_blank"
+                            rel="noopener">plusmedia.ru</a>&nbsp;· <a href="https://liderpoiska.ru" target="_blank"
+                            rel="noopener">liderpoiska.ru</a></p>
+                    <p class="exp-role">Ведущий дизайнер</p>
+                    <div class="exp-desc">
+                        <p>В&nbsp;рамках работы в&nbsp;«Лидере поиска»&nbsp;— SEO- и&nbsp;дизайнерском подразделении
+                            компании «Плюсмедиа»&nbsp;— проводил анализ вводных данных от&nbsp;клиента,
+                            при&nbsp;необходимости обсуждал детали и&nbsp;вёл проект непосредственно с&nbsp;заказчиками.
+                            Вёл графическую часть проекта от&nbsp;проектирования до&nbsp;финальных макетов,
+                            осуществлял контроль корректности вёрстки. В&nbsp;процессе дизайна грамотно работал
+                            с&nbsp;контентом, иногда полностью переписывая исходный текст.</p>
+                        <p>Разработал руководство для&nbsp;дизайнеров студии, принимал участие в&nbsp;развитии
+                            корпоративного блога, в&nbsp;том числе <em>пишу</em> профильные статьи.</p>
+                    </div>
+                </div>
+            </article>
         </div>
     </section>
 
@@ -1217,10 +1174,13 @@
                     Gemini и&nbsp;Claude).</p>
             </div>
 
-            <div class="gallery gallery--3 fade-in" style="margin-top: 24px;">
+            <div class="gallery gallery--ai fade-in" style="margin-top: 24px;">
                 <div class="media"><img src="assets/10/10_01.jpg" alt="AI-инструменты 1"></div>
                 <div class="media"><img src="assets/10/10_02.jpg" alt="AI-инструменты 2"></div>
                 <div class="media"><img src="assets/10/10_03.jpg" alt="AI-инструменты 3"></div>
+                <div class="media"><img src="assets/10/10_04.jpeg" alt="AI-инструменты 4"></div>
+                <div class="media"><img src="assets/10/10_05.jpg" alt="AI-инструменты 5"></div>
+                <div class="media"><img src="assets/10/10_06.jpg" alt="AI-инструменты 6"></div>
             </div>
             <p class="gallery-caption fade-in">Примеры сборки сложных продуктовых коллажей на&nbsp;основе
                 ИИ-генераций и&nbsp;ручной доработки.</p>
@@ -1230,7 +1190,6 @@
     <!-- SCREEN — Основные навыки -->
     <section id="s11" class="section">
         <div class="container fade-in">
-            <p class="t-label">Итоги</p>
             <h2 class="t-section">Основные навыки</h2>
         </div>
         <div class="container" style="padding-top: 80px;">
@@ -1244,7 +1203,7 @@
                     погружения в&nbsp;задачу.</p>
                 <ul class="eff-cards">
                     <li>
-                        <strong>Многостраничная вёрстка презентаций (40+&nbsp;полос)</strong>
+                        <strong>Дизайн многостраничных презентаций (40+&nbsp;полос)</strong>
                         Работа с&nbsp;большими массивами данных, где важна архитектура макета и&nbsp;системная логика.
                     </li>
                     <li>
@@ -1273,6 +1232,8 @@
                     <h4 class="eff-block__title">Профессиональные качества</h4>
                 </div>
                 <p class="eff-block__desc">Компетенции, помогающие выстраивать эффективную работу.</p>
+
+                <h5 class="eff-block__subtitle">Хард-скиллы</h5>
                 <ol class="eff-list">
                     <li>
                         <span class="eff-list__num">01</span>
@@ -1286,45 +1247,69 @@
                     </li>
                     <li>
                         <span class="eff-list__num">03</span>
+                        <span>Активно веду профессиональный блог, создаю скрипты для&nbsp;программ, облегчающие
+                            и&nbsp;ускоряющие работу, делюсь знаниями с&nbsp;коллегами.</span>
+                    </li>
+                    <li>
+                        <span class="eff-list__num">04</span>
+                        <span>Слежу за&nbsp;тенденциями в&nbsp;мире дизайна, активно развиваюсь и&nbsp;пробую новые
+                            области, непрерывно вкладываюсь в&nbsp;своё обучение.</span>
+                    </li>
+                </ol>
+
+                <h5 class="eff-block__subtitle">Софт-скиллы</h5>
+                <ol class="eff-list">
+                    <li>
+                        <span class="eff-list__num">05</span>
                         <span>Системный, ответственно подхожу к&nbsp;работе. Самостоятельно планирую своё время
                             и&nbsp;ресурсы, чётко оцениваю объём и&nbsp;сроки работ, заранее предупреждаю
                             о&nbsp;возможных проблемах.</span>
                     </li>
                     <li>
-                        <span class="eff-list__num">04</span>
+                        <span class="eff-list__num">06</span>
                         <span>Превосходно чувствую себя как в&nbsp;офисе, так и&nbsp;на&nbsp;полной удалёнке.
                             Общителен, легко нахожу общий язык.</span>
                     </li>
-                    <li>
-                        <span class="eff-list__num">05</span>
-                        <span>Активно веду профессиональный блог, создаю скрипты для&nbsp;программ, облегчающие
-                            и&nbsp;ускоряющие работу, делюсь знаниями с&nbsp;коллегами.</span>
-                    </li>
-                    <li>
-                        <span class="eff-list__num">06</span>
-                        <span>Слежу за&nbsp;тенденциями в&nbsp;мире дизайна, активно развиваюсь и&nbsp;пробую новые
-                            области, непрерывно вкладываюсь в&nbsp;своё обучение.</span>
-                    </li>
+                </ol>
+
+                <h5 class="eff-block__subtitle">Передача знаний</h5>
+                <ol class="eff-list">
                     <li>
                         <span class="eff-list__num">07</span>
-                        <span>Владение языками: английский&nbsp;— B2, немецкий&nbsp;— А2.</span>
+                        <span>Личные изыскания и&nbsp;наработки регулярно переношу в&nbsp;отдел, проводя
+                            воркшопы и&nbsp;мастер-классы внутри отдела, консультирую менеджеров смежных
+                            отделов. Отдел дизайна и&nbsp;компания получают знания о&nbsp;передовых
+                            технологиях, внедряя их&nbsp;в&nbsp;работу.</span>
                     </li>
                 </ol>
 
                 <h5 class="eff-block__subtitle">Редактура</h5>
-                <ol class="eff-list" start="8">
+                <ol class="eff-list">
                     <li>
                         <span class="eff-list__num">08</span>
                         <span>Русский язык люблю, пишу грамотно.</span>
                     </li>
                     <li>
                         <span class="eff-list__num">09</span>
-                        <span>Способен без&nbsp;копирайтера проанализировать и&nbsp;переработать контент от&nbsp;клиента,
-                            вычленить смысловые блоки, дать рекомендации и&nbsp;внедрить это в&nbsp;дизайн.</span>
+                        <span>Способен без&nbsp;копирайтера проанализировать и&nbsp;переработать контент
+                            от&nbsp;клиента, вычленить смысловые блоки, дать рекомендации и&nbsp;внедрить это
+                            в&nbsp;дизайн.</span>
                     </li>
                     <li>
                         <span class="eff-list__num">10</span>
                         <span>Прошёл обучение редактуры на&nbsp;курсе Максима Ильяхова «Пиши, сокращай».</span>
+                    </li>
+                </ol>
+
+                <h5 class="eff-block__subtitle">Языки</h5>
+                <ol class="eff-list">
+                    <li>
+                        <span class="eff-list__num">11</span>
+                        <span>Английский&nbsp;— B2.</span>
+                    </li>
+                    <li>
+                        <span class="eff-list__num">12</span>
+                        <span>Немецкий&nbsp;— A2.</span>
                     </li>
                 </ol>
             </div>
@@ -1335,8 +1320,8 @@
     <section id="s12" class="section salary">
         <div class="container fade-in">
             <h2 class="t-section">Зарплатные ожидания</h2>
-            <p class="t-sub" style="margin: 16px auto 0; text-align: center;">Прошу рассмотреть мою кандидатуру
-                на&nbsp;зарплату в&nbsp;размере:</p>
+            <p class="t-sub" style="margin: 16px auto 0; text-align: center; color: rgba(0,0,0,0.75);">Прошу рассмотреть
+                мою кандидатуру на&nbsp;зарплату в&nbsp;размере:</p>
             <div class="salary__numbers">
                 <span class="salary__new">220&nbsp;000&nbsp;₽</span>
             </div>
@@ -1347,7 +1332,6 @@
     <section id="s-contacts" class="section">
         <div class="container fade-in">
             <div class="contacts contacts--centered" style="margin-top: 0;">
-                <p class="contacts__label" style="text-align: center;">Буду рад связи</p>
                 <h2 class="t-section" style="text-align: center; margin-bottom: 32px;">Контакты</h2>
                 <div class="contacts__grid">
                     <a class="contact-card" href="https://brandloga.ru" target="_blank" rel="noopener">
@@ -1357,6 +1341,11 @@
                     <a class="contact-card" href="https://www.behance.net/smilinglion" target="_blank" rel="noopener">
                         <span class="contact-card__label">Behance</span>
                         <span class="contact-card__value">behance.net/smilinglion</span>
+                    </a>
+                    <a class="contact-card" href="https://www.linkedin.com/in/brandloga/" target="_blank"
+                        rel="noopener">
+                        <span class="contact-card__label">LinkedIn</span>
+                        <span class="contact-card__value">linkedin.com/in/brandloga</span>
                     </a>
                     <a class="contact-card" href="https://t.me/smiling_lion" target="_blank" rel="noopener">
                         <span class="contact-card__label">Телеграм</span>
