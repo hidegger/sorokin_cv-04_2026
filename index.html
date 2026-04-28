@@ -316,6 +316,59 @@
             transform: rotate(90deg);
         }
 
+        .lightbox__arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            color: #fff;
+            font-size: 22px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s ease, opacity 0.2s ease;
+            z-index: 1;
+            user-select: none;
+        }
+
+        .lightbox__arrow--prev { left: 24px; }
+        .lightbox__arrow--next { right: 24px; }
+
+        .lightbox__arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .lightbox__arrow:disabled {
+            opacity: 0.2;
+            cursor: default;
+        }
+
+        .lightbox__counter {
+            position: absolute;
+            bottom: 22px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            letter-spacing: 0.06em;
+            pointer-events: none;
+        }
+
+        @media (max-width: 600px) {
+            .lightbox__arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .lightbox__arrow--prev { left: 10px; }
+            .lightbox__arrow--next { right: 10px; }
+        }
+
         /* ================================================
            MEDIA CONTAINERS
            ================================================ */
@@ -1062,7 +1115,10 @@
 
     <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Просмотр изображения">
         <button class="lightbox__close" type="button" aria-label="Закрыть">✕</button>
+        <button class="lightbox__arrow lightbox__arrow--prev" type="button" aria-label="Предыдущее">&#8592;</button>
+        <button class="lightbox__arrow lightbox__arrow--next" type="button" aria-label="Следующее">&#8594;</button>
         <img alt="" />
+        <div class="lightbox__counter"></div>
     </div>
 
     <!-- =============================================
@@ -1623,32 +1679,88 @@
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = lightbox.querySelector('img');
         const lightboxClose = lightbox.querySelector('.lightbox__close');
+        const lightboxPrev = lightbox.querySelector('.lightbox__arrow--prev');
+        const lightboxNext = lightbox.querySelector('.lightbox__arrow--next');
+        const lightboxCounter = lightbox.querySelector('.lightbox__counter');
 
-        function openLightbox(src, alt) {
-            lightboxImg.src = src;
-            lightboxImg.alt = alt || '';
+        // Collect all lightbox-eligible images (skip links / Behance)
+        let lbImages = [];
+        let lbIndex = 0;
+
+        function buildImageList() {
+            lbImages = [];
+            document.querySelectorAll('.media img').forEach(img => {
+                if (!img.closest('a')) lbImages.push(img);
+            });
+        }
+
+        function updateLightbox() {
+            const img = lbImages[lbIndex];
+            lightboxImg.src = img.currentSrc || img.src;
+            lightboxImg.alt = img.alt || '';
+            lightboxPrev.disabled = lbIndex === 0;
+            lightboxNext.disabled = lbIndex === lbImages.length - 1;
+            lightboxCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+        }
+
+        function openLightbox(index) {
+            buildImageList();
+            lbIndex = index;
+            updateLightbox();
             lightbox.classList.add('open');
             document.body.style.overflow = 'hidden';
         }
+
         function closeLightbox() {
             lightbox.classList.remove('open');
             document.body.style.overflow = '';
             setTimeout(() => { lightboxImg.src = ''; }, 300);
         }
 
+        function showPrev() {
+            if (lbIndex > 0) { lbIndex--; updateLightbox(); }
+        }
+        function showNext() {
+            if (lbIndex < lbImages.length - 1) { lbIndex++; updateLightbox(); }
+        }
+
+        // Bind click on images
+        buildImageList();
         document.querySelectorAll('.media img').forEach(img => {
-            // Skip images wrapped in a link (Behance projects)
             if (img.closest('a')) return;
-            img.addEventListener('click', () => openLightbox(img.currentSrc || img.src, img.alt));
+            img.addEventListener('click', () => {
+                buildImageList();
+                const idx = lbImages.indexOf(img);
+                openLightbox(idx >= 0 ? idx : 0);
+            });
         });
 
+        lightboxPrev.addEventListener('click', showPrev);
+        lightboxNext.addEventListener('click', showNext);
         lightboxClose.addEventListener('click', closeLightbox);
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) closeLightbox();
         });
+
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') showPrev();
+            if (e.key === 'ArrowRight') showNext();
         });
+
+        // Touch/swipe support
+        let lbTouchX = null;
+        lightbox.addEventListener('touchstart', (e) => {
+            lbTouchX = e.touches[0].clientX;
+        }, { passive: true });
+        lightbox.addEventListener('touchend', (e) => {
+            if (lbTouchX === null) return;
+            const dx = e.changedTouches[0].clientX - lbTouchX;
+            if (Math.abs(dx) > 50) dx < 0 ? showNext() : showPrev();
+            lbTouchX = null;
+        }, { passive: true });
     </script>
 
 </body>
