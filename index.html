@@ -871,6 +871,93 @@
             margin-top: 16px;
         }
 
+        .contacts__group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .contacts__group + .contacts__group {
+            margin-top: 12px;
+        }
+
+        .contacts__group--portfolio {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 600px) {
+            .contacts__group--portfolio {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ================================================
+           WEB PROJECTS
+           ================================================ */
+        .web-project {
+            margin-top: 72px;
+        }
+
+        .web-project:first-of-type {
+            margin-top: 40px;
+        }
+
+        .web-project__title {
+            font-size: 1.55rem;
+            font-weight: 600;
+            line-height: 1.25;
+            letter-spacing: -0.01em;
+            color: #0d0d0d;
+            margin-bottom: 10px;
+            max-width: 900px;
+        }
+
+        .web-project__url {
+            display: inline-block;
+            font-size: 0.98rem;
+            color: rgba(0, 0, 0, 0.55);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+            margin-bottom: 18px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .web-project__url:hover {
+            color: #0d0d0d;
+            border-color: #0d0d0d;
+        }
+
+        .web-project__desc {
+            font-size: 1.05rem;
+            color: rgba(0, 0, 0, 0.78);
+            line-height: 1.65;
+            max-width: 820px;
+            margin-bottom: 24px;
+        }
+
+        .web-project__media {
+            margin-top: 8px;
+        }
+
+        .web-project__case {
+            display: inline-block;
+            margin-top: 18px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: #0d0d0d;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+            transition: opacity 0.2s ease, border-color 0.2s ease;
+        }
+
+        .web-project__case:hover {
+            opacity: 0.7;
+        }
+
+        .web-project__case::after {
+            content: " →";
+        }
+
         .contact-card {
             display: flex;
             flex-direction: column;
@@ -907,7 +994,8 @@
             word-break: break-word;
         }
 
-        .contacts--centered .contacts__grid {
+        .contacts--centered .contacts__grid,
+        .contacts--centered .contacts__group {
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
@@ -1133,7 +1221,7 @@
             </div>
 
             <div class="contacts fade-in">
-                <div class="contacts__grid">
+                <div class="contacts__group contacts__group--portfolio">
                     <a class="contact-card" href="https://brandloga.ru" target="_blank" rel="noopener">
                         <span class="contact-card__label">Сайт-портфолио</span>
                         <span class="contact-card__value">brandloga.ru</span>
@@ -1142,6 +1230,8 @@
                         <span class="contact-card__label">Behance</span>
                         <span class="contact-card__value">behance.net/smilinglion</span>
                     </a>
+                </div>
+                <div class="contacts__group contacts__group--direct">
                     <a class="contact-card" href="https://www.linkedin.com/in/brandloga/" target="_blank"
                         rel="noopener">
                         <span class="contact-card__label">LinkedIn</span>
@@ -1258,21 +1348,55 @@
                     дизайн-системы, в&nbsp;прошлом собирал сайты
                     «под&nbsp;ключ» (HTML/CSS/JS).</p>
             </div>
-            <div class="gallery gallery--web fade-in">
-                <a class="media"
-                    href="https://www.behance.net/gallery/209323207/sajt-proizvoditelja-otdelochnyh-materialov-ortograf"
+
+            <div class="web-project fade-in">
+                <h4 class="web-project__title">Дизайн сайта производителя отделочных материалов «Ортограф»</h4>
+                <a class="web-project__url" href="http://ortograf.ru" target="_blank" rel="noopener">ortograf.ru</a>
+                <p class="web-project__desc">Проектирование и&nbsp;дизайн сложного интернет-магазина. Ключевая
+                    особенность&nbsp;— удобный онлайн-конструктор, в&nbsp;котором пользователь последовательно собирает
+                    уникальный дизайн: выбирает изображение, текстуру, делает цветокоррекцию, примеряет
+                    в&nbsp;интерьере и&nbsp;сразу получает стоимость.</p>
+                <a class="media web-project__media"
+                    href="https://brandloga.ru/dizajn-sajta-proizvoditelya-otdelochnyh-materialov-ortograf/"
                     target="_blank" rel="noopener">
                     <img src="assets/07/07_01.jpg" alt="Сайт производителя отделочных материалов «Ортограф»">
                 </a>
-                <a class="media"
-                    href="https://www.behance.net/gallery/129480857/Website-for-the-psychologist-educational-center"
+                <a class="web-project__case"
+                    href="https://brandloga.ru/dizajn-sajta-proizvoditelya-otdelochnyh-materialov-ortograf/"
+                    target="_blank" rel="noopener">Полный кейс</a>
+            </div>
+
+            <div class="web-project fade-in">
+                <h4 class="web-project__title">Сайт для центра обучения</h4>
+                <a class="web-project__url" href="http://psyprofess.ru" target="_blank" rel="noopener">psyprofess.ru</a>
+                <p class="web-project__desc">Ключевые особенности: проведена работа по&nbsp;систематизации
+                    разнообразных типов курсов и&nbsp;обучающих материалов. На&nbsp;основе созданной структуры
+                    сформировали типовые блоки для&nbsp;каждого типа материала, спроектировали календарь событий,
+                    настроили удобное наполнение материала.</p>
+                <a class="media web-project__media"
+                    href="https://brandloga.ru/razrabotka-sajta-dlya-mezhdunarodnogo-czentra-professional/"
                     target="_blank" rel="noopener">
-                    <img src="assets/07/07_02.jpg" alt="Website for the psychologist educational center">
+                    <img src="assets/07/07_02.jpg" alt="Сайт для международного центра профессионального обучения">
                 </a>
-                <a class="media" href="https://www.behance.net/gallery/83594697/Website-for-tyre-online-shop"
+                <a class="web-project__case"
+                    href="https://brandloga.ru/razrabotka-sajta-dlya-mezhdunarodnogo-czentra-professional/"
+                    target="_blank" rel="noopener">Полный кейс</a>
+            </div>
+
+            <div class="web-project fade-in">
+                <h4 class="web-project__title">Сайт для интернет-магазина шин</h4>
+                <p class="web-project__desc">Ключевые особенности: помимо детального дизайна всех страниц
+                    интернет-магазина, спроектирован полностью сложный и&nbsp;многокомпонентный личный кабинет, внутри
+                    которого и&nbsp;функционал для&nbsp;поставщиков (учтена логистика товаров, наполнение карточек),
+                    и&nbsp;покупателей.</p>
+                <a class="media web-project__media"
+                    href="https://www.behance.net/gallery/83594697/Website-for-tyre-online-shop"
                     target="_blank" rel="noopener">
-                    <img src="assets/07/07_03.jpg" alt="Website for tyre online shop">
+                    <img src="assets/07/07_03.jpg" alt="Сайт интернет-магазина шин">
                 </a>
+                <a class="web-project__case"
+                    href="https://www.behance.net/gallery/83594697/Website-for-tyre-online-shop"
+                    target="_blank" rel="noopener">Полный кейс</a>
             </div>
         </div>
     </section>
@@ -1586,7 +1710,7 @@
         <div class="container fade-in">
             <div class="contacts contacts--centered" style="margin-top: 0;">
                 <h2 class="t-section" style="text-align: center; margin-bottom: 32px;">Контакты</h2>
-                <div class="contacts__grid">
+                <div class="contacts__group contacts__group--portfolio">
                     <a class="contact-card" href="https://brandloga.ru" target="_blank" rel="noopener">
                         <span class="contact-card__label">Сайт-портфолио</span>
                         <span class="contact-card__value">brandloga.ru</span>
@@ -1595,6 +1719,8 @@
                         <span class="contact-card__label">Behance</span>
                         <span class="contact-card__value">behance.net/smilinglion</span>
                     </a>
+                </div>
+                <div class="contacts__group contacts__group--direct">
                     <a class="contact-card" href="https://www.linkedin.com/in/brandloga/" target="_blank"
                         rel="noopener">
                         <span class="contact-card__label">LinkedIn</span>
@@ -1683,16 +1809,9 @@
         const lightboxNext = lightbox.querySelector('.lightbox__arrow--next');
         const lightboxCounter = lightbox.querySelector('.lightbox__counter');
 
-        // Collect all lightbox-eligible images (skip links / Behance)
+        // Lightbox navigation is scoped to the current gallery (section)
         let lbImages = [];
         let lbIndex = 0;
-
-        function buildImageList() {
-            lbImages = [];
-            document.querySelectorAll('.media img').forEach(img => {
-                if (!img.closest('a')) lbImages.push(img);
-            });
-        }
 
         function updateLightbox() {
             const img = lbImages[lbIndex];
@@ -1700,12 +1819,22 @@
             lightboxImg.alt = img.alt || '';
             lightboxPrev.disabled = lbIndex === 0;
             lightboxNext.disabled = lbIndex === lbImages.length - 1;
-            lightboxCounter.textContent = `${lbIndex + 1} / ${lbImages.length}`;
+            const total = lbImages.length;
+            lightboxCounter.textContent = total > 1 ? `${lbIndex + 1} / ${total}` : '';
+            lightboxPrev.style.display = total > 1 ? '' : 'none';
+            lightboxNext.style.display = total > 1 ? '' : 'none';
         }
 
-        function openLightbox(index) {
-            buildImageList();
-            lbIndex = index;
+        function openLightboxFromImage(img) {
+            // Scope to the closest gallery (or fall back to section)
+            const scope = img.closest('.gallery') || img.closest('section') || document;
+            lbImages = Array.from(scope.querySelectorAll('.media img'))
+                .filter(i => !i.closest('a'));
+            lbIndex = lbImages.indexOf(img);
+            if (lbIndex < 0) {
+                lbImages = [img];
+                lbIndex = 0;
+            }
             updateLightbox();
             lightbox.classList.add('open');
             document.body.style.overflow = 'hidden';
@@ -1725,14 +1854,9 @@
         }
 
         // Bind click on images
-        buildImageList();
         document.querySelectorAll('.media img').forEach(img => {
             if (img.closest('a')) return;
-            img.addEventListener('click', () => {
-                buildImageList();
-                const idx = lbImages.indexOf(img);
-                openLightbox(idx >= 0 ? idx : 0);
-            });
+            img.addEventListener('click', () => openLightboxFromImage(img));
         });
 
         lightboxPrev.addEventListener('click', showPrev);
