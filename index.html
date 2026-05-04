@@ -689,6 +689,33 @@
             font-style: italic;
         }
 
+        .subblock {
+            margin-top: 80px;
+        }
+
+        .subblock-title {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 600;
+            color: #0d0d0d;
+            margin-bottom: 10px;
+            letter-spacing: -0.005em;
+        }
+
+        .subblock-desc {
+            font-size: 1rem;
+            color: rgba(0, 0, 0, 0.78);
+            max-width: 900px;
+            margin-bottom: 28px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 600px) {
+            .subblock {
+                margin-top: 56px;
+                padding-top: 40px;
+            }
+        }
+
         /* ================================================
            EXPERIENCE SECTION
            ================================================ */
@@ -1474,6 +1501,26 @@
                 <div class="media media--wide-2"><img src="assets/04/04_06.jpg" alt="Графический дизайн 6"></div>
                 <div class="media media--wide"><img src="assets/04/04_05.jpg" alt="Графический дизайн 5"></div>
             </div>
+
+            <div class="subblock fade-in">
+                <h4 class="subblock-title">Использование нейросетей</h4>
+                <p class="subblock-desc">Активно применяю все сильные стороны ИИ для&nbsp;генерации визуалов
+                    (Midjourney, Nanobanana, Firefly, Kling), работы с&nbsp;материалом (ChatGPT, Gemini)
+                    и&nbsp;автоматизации (разработка ИИ-агентов и&nbsp;вайб-кодинг на&nbsp;Codex, Gemini
+                    и&nbsp;Claude).</p>
+
+                <div class="gallery gallery--ai">
+                    <div class="media"><img src="assets/10/10_01.jpg" alt="AI-инструменты 1"></div>
+                    <div class="media"><img src="assets/10/10_02.jpg" alt="AI-инструменты 2"></div>
+                    <div class="media"><img src="assets/10/10_03.jpg" alt="AI-инструменты 3"></div>
+                    <div class="media"><img src="assets/10/10_04.jpeg" alt="AI-инструменты 4"></div>
+                    <div class="media"><img src="assets/10/10_05.jpg" alt="AI-инструменты 5"></div>
+                    <div class="media"><img src="assets/10/10_06.jpg" alt="AI-инструменты 6"></div>
+                </div>
+                <p class="gallery-caption">Продуктовые визуалы, собранные через AI-пайплайн: генерация базы
+                    в&nbsp;Midjourney и&nbsp;Nanobanana, ручная доработка в&nbsp;Photoshop. Заменяет полноценную
+                    фотосессию при&nbsp;правильно выстроенном процессе.</p>
+            </div>
         </div>
     </section>
 
@@ -1794,25 +1841,6 @@
                 </div>
             </div>
 
-            <div class="fade-in" style="margin-top: 24px;">
-                <h3 class="subsection-title">Использование нейросетей</h3>
-                <p class="subsection-desc" style="max-width: 900px;">Активно применяю все сильные стороны ИИ
-                    для&nbsp;генерации визуалов (Midjourney, Nanobanana, Firefly, Kling), работы с&nbsp;материалом
-                    (ChatGPT, Gemini) и&nbsp;автоматизации (разработка ИИ-агентов и&nbsp;вайб-кодинг на&nbsp;Codex,
-                    Gemini и&nbsp;Claude).</p>
-            </div>
-
-            <div class="gallery gallery--ai fade-in" style="margin-top: 24px;">
-                <div class="media"><img src="assets/10/10_01.jpg" alt="AI-инструменты 1"></div>
-                <div class="media"><img src="assets/10/10_02.jpg" alt="AI-инструменты 2"></div>
-                <div class="media"><img src="assets/10/10_03.jpg" alt="AI-инструменты 3"></div>
-                <div class="media"><img src="assets/10/10_04.jpeg" alt="AI-инструменты 4"></div>
-                <div class="media"><img src="assets/10/10_05.jpg" alt="AI-инструменты 5"></div>
-                <div class="media"><img src="assets/10/10_06.jpg" alt="AI-инструменты 6"></div>
-            </div>
-            <p class="gallery-caption fade-in">Продуктовые визуалы, собранные через AI-пайплайн: генерация базы
-                в&nbsp;Midjourney и&nbsp;Nanobanana, ручная доработка в&nbsp;Photoshop. Заменяет полноценную
-                фотосессию при&nbsp;правильно выстроенном процессе.</p>
         </div>
     </section>
 
