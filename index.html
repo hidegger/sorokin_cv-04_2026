@@ -5,6 +5,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Егор Сорокин — Ведущий дизайнер · Брендинг, визуальные системы, автоматизация</title>
+    <meta name="description"
+        content="Егор Сорокин — старший дизайнер. Сейчас в Simushka (Россия), ранее 6 лет в Acronis (Швейцария). Брендинг, визуальные системы, AI и автоматизация.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Егор Сорокин",
+      "email": "mailto:sorokin.ea@gmail.com",
+      "jobTitle": "Старший дизайнер",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Simushka",
+        "url": "https://simushka.ru"
+      },
+      "alumniOf": [
+        { "@type": "Organization", "name": "Acronis", "url": "https://acronis.com" },
+        { "@type": "Organization", "name": "Plusmedia", "url": "https://plusmedia.ru" }
+      ],
+      "hasOccupation": [
+        {
+          "@type": "Occupation",
+          "name": "Старший дизайнер",
+          "occupationLocation": { "@type": "Country", "name": "Россия" },
+          "estimatedSalary": null,
+          "occupationalCategory": "Design",
+          "skills": "Брендинг, визуальные системы, AI-автоматизация, Figma, Adobe CC"
+        }
+      ]
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800;900&display=swap"
@@ -1218,6 +1248,14 @@
             transform: translateY(0);
         }
 
+        /* Опыт работы — всегда виден, не зависит от JS-наблюдателя,
+           чтобы ИИ-парсеры и headless-боты считывали все записи. */
+        .exp-entry.fade-in {
+            opacity: 1;
+            transform: none;
+            transition: none;
+        }
+
         /* ================================================
            RESPONSIVE
            ================================================ */
@@ -1731,35 +1769,15 @@
             <h2 class="t-section">Опыт работы</h2>
         </div>
         <div class="container exp-list">
-            <article class="exp-entry fade-in">
-                <div class="exp-date">2008&nbsp;— по&nbsp;настоящее время</div>
+            <article class="exp-entry fade-in" aria-current="true" itemscope
+                itemtype="https://schema.org/OrganizationRole">
+                <div class="exp-date"><time itemprop="startDate" datetime="2024-08">Август 2024</time>&nbsp;— <time
+                        itemprop="endDate" datetime="2026-04">Апрель 2026</time></div>
                 <div class="exp-body">
-                    <h3 class="exp-company">Фриланс</h3>
-                    <p class="exp-meta">Самостоятельная практика · брендинг, веб-дизайн, полиграфия</p>
-                    <p class="exp-role">Дизайнер · Арт-директор</p>
-                    <div class="exp-desc">
-                        <p>Веду проекты от&nbsp;начала до&nbsp;конца: брифование, проектирование, дизайн,
-                            поддержка визуального стиля бренда, дизайн-системы и&nbsp;продуктовый дизайн.</p>
-                        <ul>
-                            <li>Самостоятельно закрываю задачи менеджера, копирайтера
-                                и&nbsp;дизайнера&nbsp;— работаю напрямую с&nbsp;заказчиком
-                                без&nbsp;промежуточного звена.</li>
-                            <li>Пишу ТЗ и&nbsp;контролирую работу верстальщика
-                                и&nbsp;программиста.</li>
-                            <li>Сопровождаю проект до&nbsp;продакшена: от&nbsp;первого брифа до&nbsp;финального
-                                запуска и&nbsp;дальнейшей поддержки визуального стиля.</li>
-                        </ul>
-                    </div>
-                </div>
-            </article>
-
-            <article class="exp-entry fade-in">
-                <div class="exp-date">Август 2024&nbsp;— Апрель 2026</div>
-                <div class="exp-body">
-                    <h3 class="exp-company">Simushka</h3>
+                    <h3 class="exp-company" itemprop="worksFor">Simushka</h3>
                     <p class="exp-meta">Россия&nbsp;· <a href="https://simushka.ru" target="_blank"
                             rel="noopener">simushka.ru</a></p>
-                    <p class="exp-role">Старший дизайнер</p>
+                    <p class="exp-role" itemprop="roleName">Старший дизайнер · последнее место работы</p>
                     <div class="exp-desc">
                         <p>Отвечал за&nbsp;графическое производство в&nbsp;команде бренд-дизайна: баннеры,
                             презентации, промо-материалы для&nbsp;мероприятий и&nbsp;кампаний, упаковка
@@ -1781,13 +1799,38 @@
                 </div>
             </article>
 
-            <article class="exp-entry fade-in">
-                <div class="exp-date">Март 2018&nbsp;— Июнь 2024</div>
+            <article class="exp-entry fade-in" itemscope itemtype="https://schema.org/OrganizationRole">
+                <div class="exp-date"><time itemprop="startDate" datetime="2008">2008</time>&nbsp;— по&nbsp;настоящее
+                    время</div>
                 <div class="exp-body">
-                    <h3 class="exp-company">Acronis</h3>
+                    <h3 class="exp-company" itemprop="worksFor">Фриланс</h3>
+                    <p class="exp-meta">Самостоятельная практика · брендинг, веб-дизайн, полиграфия</p>
+                    <p class="exp-role" itemprop="roleName">Дизайнер · Арт-директор (параллельно с&nbsp;основной
+                        работой)</p>
+                    <div class="exp-desc">
+                        <p>Веду проекты от&nbsp;начала до&nbsp;конца: брифование, проектирование, дизайн,
+                            поддержка визуального стиля бренда, дизайн-системы и&nbsp;продуктовый дизайн.</p>
+                        <ul>
+                            <li>Самостоятельно закрываю задачи менеджера, копирайтера
+                                и&nbsp;дизайнера&nbsp;— работаю напрямую с&nbsp;заказчиком
+                                без&nbsp;промежуточного звена.</li>
+                            <li>Пишу ТЗ и&nbsp;контролирую работу верстальщика
+                                и&nbsp;программиста.</li>
+                            <li>Сопровождаю проект до&nbsp;продакшена: от&nbsp;первого брифа до&nbsp;финального
+                                запуска и&nbsp;дальнейшей поддержки визуального стиля.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exp-entry fade-in" itemscope itemtype="https://schema.org/OrganizationRole">
+                <div class="exp-date"><time itemprop="startDate" datetime="2018-03">Март 2018</time>&nbsp;— <time
+                        itemprop="endDate" datetime="2024-06">Июнь 2024</time></div>
+                <div class="exp-body">
+                    <h3 class="exp-company" itemprop="worksFor">Acronis</h3>
                     <p class="exp-meta">Швейцария&nbsp;· <a href="https://acronis.com" target="_blank"
                             rel="noopener">acronis.com</a></p>
-                    <p class="exp-role">Старший дизайнер / Арт-директор</p>
+                    <p class="exp-role" itemprop="roleName">Старший дизайнер / Арт-директор</p>
                     <div class="exp-desc">
                         <p>Шесть лет в&nbsp;международной B2B tech-компании. Работал в&nbsp;команде веб-дизайна:
                             визуальные кампании, баннерные экосистемы, презентации, key&nbsp;visual
@@ -1813,14 +1856,15 @@
                 </div>
             </article>
 
-            <article class="exp-entry fade-in">
-                <div class="exp-date">Май 2016&nbsp;— Август 2023</div>
+            <article class="exp-entry fade-in" itemscope itemtype="https://schema.org/OrganizationRole">
+                <div class="exp-date"><time itemprop="startDate" datetime="2016-05">Май 2016</time>&nbsp;— <time
+                        itemprop="endDate" datetime="2023-08">Август 2023</time></div>
                 <div class="exp-body">
-                    <h3 class="exp-company">Plusmedia (Лидер поиска)</h3>
+                    <h3 class="exp-company" itemprop="worksFor">Plusmedia (Лидер поиска)</h3>
                     <p class="exp-meta">Самара&nbsp;· <a href="https://plusmedia.ru" target="_blank"
                             rel="noopener">plusmedia.ru</a>&nbsp;· <a href="https://liderpoiska.ru" target="_blank"
                             rel="noopener">liderpoiska.ru</a></p>
-                    <p class="exp-role">Ведущий дизайнер</p>
+                    <p class="exp-role" itemprop="roleName">Ведущий дизайнер</p>
                     <div class="exp-desc">
                         <p>Вёл дизайн-проекты полного цикла в&nbsp;SEO- и&nbsp;веб-дизайнерском подразделении
                             компании: от&nbsp;анализа ТЗ и&nbsp;обсуждения с&nbsp;клиентом до&nbsp;финальных
